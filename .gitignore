@@ -8,5 +8,5 @@ __pycache__/
 *.py[cod]
 .DS_Store
 
-# Duplicate render retained locally for compatibility with earlier tooling.
-build/main_taxonomy.svg.png
+# Local render outputs.
+build/

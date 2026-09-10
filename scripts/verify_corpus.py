@@ -16,9 +16,10 @@ def main() -> None:
     with args.manifest.open(encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle, delimiter="\t"))
 
+    repo_root = Path(__file__).resolve().parents[1]
     bad: list[tuple[str, str, str]] = []
     for row in rows:
-        path = args.manifest.parent / row["local_file"]
+        path = repo_root / row["local_file"]
         if not path.exists():
             bad.append((row["arxiv_id"], str(path), "missing"))
             continue

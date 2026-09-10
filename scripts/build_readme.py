@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST = ROOT / "paper_manifest.tsv"
+MANIFEST = ROOT / "data" / "paper_manifest.tsv"
 OUTPUT = ROOT / "README.md"
 
 
@@ -256,7 +256,7 @@ def build() -> str:
         [
             "",
             '<p align="center">',
-            '  <a href="main_taxonomy.pdf"><img src="main_taxonomy.svg" width="100%" alt="Taxonomy of reasoning generalization in large language models"></a>',
+            '  <a href="assets/main_taxonomy.pdf"><img src="assets/main_taxonomy.svg" width="100%" alt="Taxonomy of reasoning generalization in large language models"></a>',
             "</p>",
             "",
             "The first three pillars concern interventions. The fourth separates behavioral observations from empirical mechanisms and theoretical results. Each paper receives one primary manifest label, even when it informs several sections.",
@@ -267,11 +267,10 @@ def build() -> str:
     )
 
     for pillar, subsections in PAPER_SECTIONS.items():
-        pillar_count = sum(len(grouped[pillar][subsection]) for subsection in subsections)
-        lines.extend([f"### {pillar} ({pillar_count})", ""])
+        lines.extend([f"### {pillar}", ""])
         for subsection in subsections:
             papers = grouped[pillar][subsection]
-            lines.extend([f"#### {subsection} ({len(papers)})", ""])
+            lines.extend([f"#### {subsection}", ""])
             lines.extend(paper_item(row) for row in papers)
             lines.append("")
 
