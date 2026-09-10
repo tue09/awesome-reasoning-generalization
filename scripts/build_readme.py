@@ -176,13 +176,22 @@ def anchor(text: str) -> str:
     return clean(text).lower().replace(":", "").replace(",", "").replace(" ", "-")
 
 
+YEAR_BADGE_COLOR = {
+    "2026": "red",
+    "2025": "orange",
+    "2024": "yellow",
+}
+
+
 def paper_item(row: dict[str, str]) -> str:
     title = clean(row["title"])
     authors = clean(row["authors"].replace(";", ","))
-    date = row["published"][:7]
+    year = row["published"][:4]
+    color = YEAR_BADGE_COLOR.get(year, "lightgrey")
     return (
         f"- **{title}**. *{authors}*. "
-        f"[[paper]({row['source_url']})] [[pdf]({row['pdf_url']})], {date}."
+        f"[[Paper]]({row['source_url']}) [[PDF]]({row['pdf_url']}) "
+        f"![](https://img.shields.io/badge/year-{year}-{color})"
     )
 
 
@@ -220,9 +229,9 @@ def build() -> str:
         "",
         "[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)",
         f"![Core papers](https://img.shields.io/badge/core%20papers-{len(core)}-6f42c1)",
-        f"![2024 papers](https://img.shields.io/badge/2024%20papers-{year_counts['2024']}-8c6bb1)",
-        f"![2025 papers](https://img.shields.io/badge/2025%20papers-{year_counts['2025']}-3182bd)",
-        f"![2026 papers](https://img.shields.io/badge/2026%20papers-{year_counts['2026']}-1f77b4)",
+        f"![2024 papers](https://img.shields.io/badge/2024%20papers-{year_counts['2024']}-{YEAR_BADGE_COLOR['2024']})",
+        f"![2025 papers](https://img.shields.io/badge/2025%20papers-{year_counts['2025']}-{YEAR_BADGE_COLOR['2025']})",
+        f"![2026 papers](https://img.shields.io/badge/2026%20papers-{year_counts['2026']}-{YEAR_BADGE_COLOR['2026']})",
         "[![GitHub last commit](https://img.shields.io/github/last-commit/tue09/awesome-reasoning-generalization?logo=github&color=blue)](https://github.com/tue09/awesome-reasoning-generalization/commits/main)",
         "",
         "</div>",
