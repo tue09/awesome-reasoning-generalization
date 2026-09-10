@@ -129,3 +129,24 @@ arxiv_id	pillar	branch	inclusion_note
 2108.13624	related-survey	OOD generalization	Foundational survey of out-of-distribution generalization
 1711.00350	analysis	behavioral observations	Foundational SCAN study of systematic compositional generalization
 2511.00066	training	post-training/RL	Sharpness-guided GRPO with cross-benchmark and out-domain evaluation
+2410.13502	analysis	behavioral observations	Controlled easy-to-hard shifts in proof-tree depth, width, nonlinearity, and sentence order
+2410.05229	analysis	behavioral observations	Symbolic GSM8K instantiations and irrelevant-clause perturbations expose surface brittleness
+2402.19255	analysis	behavioral observations	Solved GSM8K problems fail under changed statements and question targets
+2409.13728	analysis	behavioral observations	Rule-governed formal-language reasoning tested on OOD prompts
+2402.04875	analysis	theoretical analysis	Learnability conditions for length and compositional generalization across architectures
+2402.09371	analysis	behavioral observations	Short-to-long arithmetic transfer is possible but seed- and format-fragile
+2406.01895	architecture	positional structure	Structural number encoding and custom positions enable 5-to-50-digit extrapolation
+2405.20671	architecture	positional structure	Task-aligned position coupling enables addition far beyond training lengths
+2410.15787	architecture	structured scratchpads	Task-specific scratchpads and position coupling generalize in operand length and count
+2410.06272	analysis	behavioral observations	Unseen relation-type combinations in graph reasoning plus structure-aware in-context learning
+2406.17038	analysis	contamination-resistant evaluation	New linguistic olympiad puzzles provide contamination-resistant inductive reasoning evaluation
+2512.02677	analysis	behavioral observations	Depth-held-out recursive logic tasks expose transformer failures and looped-model gains
+2505.22635	training	post-training/SFT target design	Composable CoT supervision combines atomic skills on unlabeled target compositions
+2505.20278	analysis	empirical mechanisms	Functional-equivalence coverage predicts pattern-matching transfer and path ambiguity limits it
+2502.04667	analysis	empirical mechanisms	Controlled OOD composition reveals two-stage CoT circuits
+2502.01612	training	post-training/hybrid and self-improvement	Iterative self-training extrapolates arithmetic, string, and maze procedures
+2506.04821	training	post-training/RL environments	RLVR across logic puzzles transfers reusable routines to OOD mathematics
+2503.00845	training	post-training/process-aware RL	Graph-structured process rewards transfer across graph tasks and mathematics
+2507.13332	training	mid-training and verified synthesis	Synthetic Turing-machine traces teach length-general algorithms across task classes
+2504.01445	analysis	behavioral observations	Unseen compositions of familiar spatial transformations isolate systematic transfer
+2509.25123	training	post-training/RL and skill composition	RL composes known atomic skills, extrapolates to deeper compositions, and transfers across tasks

@@ -5,13 +5,15 @@
 ### Beyond the Training Distribution: A Survey of Reasoning Generalization in Large Language Models
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-![Core papers](https://img.shields.io/badge/core%20papers-124-6f42c1)
+![Core papers](https://img.shields.io/badge/core%20papers-145-6f42c1)
+![2024 papers](https://img.shields.io/badge/2024%20papers-14-8c6bb1)
+![2025 papers](https://img.shields.io/badge/2025%20papers-39-3182bd)
 ![2026 papers](https://img.shields.io/badge/2026%20papers-86-1f77b4)
 [![GitHub last commit](https://img.shields.io/github/last-commit/tue09/awesome-reasoning-generalization?logo=github&color=blue)](https://github.com/tue09/awesome-reasoning-generalization/commits/main)
 
 </div>
 
-> **Status:** The literature search was updated on 8 September 2026. The corpus contains 124 core studies, including 86 first posted in 2026.
+> **Status:** The literature search was updated on 10 September 2026. The corpus contains 145 core studies: 86 from 2026, 39 from 2025, 14 from 2024, and 6 earlier foundations.
 
 ## Contents
 
@@ -65,6 +67,7 @@ The first three pillars concern interventions. The fourth separates behavioral o
 - **Rethinking Easy-to-Hard: Limits of Curriculum Learning in Post-Training for Deductive Reasoning**. *Maximilian Mordig, Andreas Opedal, Weiyang Liu, Bernhard Schölkopf*. [[paper](https://arxiv.org/abs/2603.27226)] [[pdf](https://arxiv.org/pdf/2603.27226)], 2026-03.
 - **Learning from Synthetic Data Improves Multi-hop Reasoning**. *Anmol Kabra, Yilun Yin, Albert Gong, Kamilė Stankevičiūtė, Dongyoung Go, Johann Lee, Katie Z. Luo, Carla P. Gomes, Kilian Q. Weinberger*. [[paper](https://arxiv.org/abs/2603.02091)] [[pdf](https://arxiv.org/pdf/2603.02091)], 2026-03.
 - **Fundamental Reasoning Paradigms Induce Out-of-Domain Generalization in Language Models**. *Mingzi Cao, Xingwei Tan, Mahmud Elahi Akhter, Marco Valentino, Maria Liakata, Xi Wang, Nikolaos Aletras*. [[paper](https://arxiv.org/abs/2602.08658)] [[pdf](https://arxiv.org/pdf/2602.08658)], 2026-02.
+- **The Imitation Game: Turing Machine Imitator is Length Generalizable Reasoner**. *Zhouqi Hua, Wenwei Zhang, Chengqi Lyu, Yuzhe Gu, Songyang Gao, Kuikun Liu, Dahua Lin, Kai Chen*. [[paper](https://arxiv.org/abs/2507.13332)] [[pdf](https://arxiv.org/pdf/2507.13332)], 2025-07.
 - **Beyond Single-Task: Robust Multi-Task Length Generalization for LLMs**. *Yi Hu, Shijia Kang, Haotong Yang, Haotian Xu, Muhan Zhang*. [[paper](https://arxiv.org/abs/2502.11525)] [[pdf](https://arxiv.org/pdf/2502.11525)], 2025-02.
 - **Complexity Control Facilitates Reasoning-Based Compositional Generalization in Transformers**. *Zhongwang Zhang, Pengxiao Lin, Zhiwei Wang, Yaoyu Zhang, Zhi-Qin John Xu*. [[paper](https://arxiv.org/abs/2501.08537)] [[pdf](https://arxiv.org/pdf/2501.08537)], 2025-01.
 
@@ -79,6 +82,7 @@ The first three pillars concern interventions. The fourth separates behavioral o
 - **Making Expert Reasoning Learnable with Self-Distillation**. *Ethan Mendes, Jungsoo Park, Alan Ritter*. [[paper](https://arxiv.org/abs/2602.02405)] [[pdf](https://arxiv.org/pdf/2602.02405)], 2026-02.
 - **Learning from Mistakes: Negative Reasoning Samples Enhance Out-of-Domain Generalization**. *Xueyun Tian, Minghua Ma, Bingbing Xu, Nuoyan Lyu, Wei Li, Heng Dong, Zheng Chu, Yuanzhuo Wang, Huawei Shen*. [[paper](https://arxiv.org/abs/2601.04992)] [[pdf](https://arxiv.org/pdf/2601.04992)], 2026-01.
 - **Mitigating Spurious Correlations in LLMs via Causality-Aware Post-Training**. *Shurui Gui, Shuiwang Ji*. [[paper](https://arxiv.org/abs/2506.09433)] [[pdf](https://arxiv.org/pdf/2506.09433)], 2025-06.
+- **Learning Composable Chains-of-Thought**. *Fangcong Yin, Zeyu Leo Liu, Liu Leqi, Xi Ye, Greg Durrett*. [[paper](https://arxiv.org/abs/2505.22635)] [[pdf](https://arxiv.org/pdf/2505.22635)], 2025-05.
 
 #### Post-training: RL and reward design
 
@@ -94,8 +98,11 @@ The first three pillars concern interventions. The fourth separates behavioral o
 - **GraphDancer: Training LLMs to Explore and Reason over Graphs via Two-Stage Curriculum Post-Training**. *Yuyang Bai, Zhuofeng Li, Ping Nie, Jianwen Xie, Yu Zhang*. [[paper](https://arxiv.org/abs/2602.02518)] [[pdf](https://arxiv.org/pdf/2602.02518)], 2026-01.
 - **Sharpness-Guided Group Relative Policy Optimization via Probability Shaping**. *Tue Le, Linh Ngo Van, Trung Le*. [[paper](https://arxiv.org/abs/2511.00066)] [[pdf](https://arxiv.org/pdf/2511.00066)], 2025-10.
 - **Can GRPO Help LLMs Transcend Their Pretraining Origin?**. *Kangqi Ni, Zhen Tan, Zijie Liu, Pingzhi Li, Tianlong Chen*. [[paper](https://arxiv.org/abs/2510.15990)] [[pdf](https://arxiv.org/pdf/2510.15990)], 2025-10.
+- **From $f(x)$ and $g(x)$ to $f(g(x))$: LLMs Learn New Skills in RL by Composing Old Ones**. *Lifan Yuan, Weize Chen, Yuchen Zhang, Ganqu Cui, Hanbin Wang, Ziming You, Ning Ding, Zhiyuan Liu, Maosong Sun, Hao Peng*. [[paper](https://arxiv.org/abs/2509.25123)] [[pdf](https://arxiv.org/pdf/2509.25123)], 2025-09.
 - **Can One Domain Help Others? A Data-Centric Study on Multi-Domain Reasoning via Reinforcement Learning**. *Yu Li, Zhuoshi Pan, Honglin Lin, Mengyuan Sun, Conghui He, Lijun Wu*. [[paper](https://arxiv.org/abs/2507.17512)] [[pdf](https://arxiv.org/pdf/2507.17512)], 2025-07.
+- **LogicPuzzleRL: Cultivating Robust Mathematical Reasoning in LLMs via Reinforcement Learning**. *Zhen Hao Wong, Jingwen Deng, Runming He, Zirong Chen, Qijie You, Hejun Dong, Hao Liang, Chengyu Shen, Bin Cui, Wentao Zhang*. [[paper](https://arxiv.org/abs/2506.04821)] [[pdf](https://arxiv.org/pdf/2506.04821)], 2025-06.
 - **X-Reasoner: Towards Generalizable Reasoning Across Modalities and Domains**. *Qianchu Liu, Sheng Zhang, Guanghui Qin, Timothy Ossowski, Yu Gu, Ying Jin, Sid Kiblawi, Sam Preston, Mu Wei, Paul Vozila, Tristan Naumann, Hoifung Poon*. [[paper](https://arxiv.org/abs/2505.03981)] [[pdf](https://arxiv.org/pdf/2505.03981)], 2025-05.
+- **Rewarding Graph Reasoning Process makes LLMs more Generalized Reasoners**. *Miao Peng, Nuo Chen, Zongrui Suo, Jia Li*. [[paper](https://arxiv.org/abs/2503.00845)] [[pdf](https://arxiv.org/pdf/2503.00845)], 2025-03.
 
 #### Post-training: hybrid and self-improvement
 
@@ -106,6 +113,7 @@ The first three pillars concern interventions. The fourth separates behavioral o
 - **Why Does RL Generalize Better Than SFT? A Data-Centric Perspective on VLM Post-Training**. *Aojun Lu, Tao Feng, Hangjie Yuan, Wei Li, Yanan Sun*. [[paper](https://arxiv.org/abs/2602.10815)] [[pdf](https://arxiv.org/pdf/2602.10815)], 2026-02.
 - **From Meta-Thought to Execution: Cognitively Aligned Post-Training for Generalizable and Reliable LLM Reasoning**. *Shaojie Wang, Liang Zhang*. [[paper](https://arxiv.org/abs/2601.21909)] [[pdf](https://arxiv.org/pdf/2601.21909)], 2026-01.
 - **Towards Compositional Generalization of LLMs via Skill Taxonomy Guided Data Synthesis**. *Yifan Wei, Li Du, Xiaoyan Yu, Yang Feng, Angsheng Li*. [[paper](https://arxiv.org/abs/2601.03676)] [[pdf](https://arxiv.org/pdf/2601.03676)], 2026-01.
+- **Self-Improving Transformers Overcome Easy-to-Hard and Length Generalization Challenges**. *Nayoung Lee, Ziyang Cai, Avi Schwarzschild, Kangwook Lee, Dimitris Papailiopoulos*. [[paper](https://arxiv.org/abs/2502.01612)] [[pdf](https://arxiv.org/pdf/2502.01612)], 2025-02.
 
 ### Inference for Generalization
 
@@ -149,6 +157,8 @@ The first three pillars concern interventions. The fourth separates behavioral o
 - **On Locality and Length Generalization in Visual Reasoning**. *Pulkit Madan, Sanjay Haresh, Reza Ebrahimi, Sunny Panchal, Apratim Bhattacharyya, Roland Memisevic*. [[paper](https://arxiv.org/abs/2607.09061)] [[pdf](https://arxiv.org/pdf/2607.09061)], 2026-07.
 - **How Data Shapes RoPE Frequency Usage: From Positional Scale Matching to Length Generalization**. *Xinyi Wu, Siyuan Liu, Ali Jadbabaie*. [[paper](https://arxiv.org/abs/2607.07678)] [[pdf](https://arxiv.org/pdf/2607.07678)], 2026-07.
 - **Position Encoding with Random Float Sampling Enhances Length Generalization of Transformers**. *Atsushi Shimizu, Shohei Taniguchi, Yutaka Matsuo*. [[paper](https://arxiv.org/abs/2602.14050)] [[pdf](https://arxiv.org/pdf/2602.14050)], 2026-02.
+- **Explicitly Encoding Structural Symmetry is Key to Length Generalization in Arithmetic Tasks**. *Mahdi Sabbaghi, George Pappas, Hamed Hassani, Surbhi Goel*. [[paper](https://arxiv.org/abs/2406.01895)] [[pdf](https://arxiv.org/pdf/2406.01895)], 2024-06.
+- **Position Coupling: Improving Length Generalization of Arithmetic Transformers Using Task Structure**. *Hanseul Cho, Jaeyoung Cha, Pranjal Awasthi, Srinadh Bhojanapalli, Anupam Gupta, Chulhee Yun*. [[paper](https://arxiv.org/abs/2405.20671)] [[pdf](https://arxiv.org/pdf/2405.20671)], 2024-05.
 
 #### Modules, symbols, and structured state
 
@@ -156,6 +166,7 @@ The first three pillars concern interventions. The fourth separates behavioral o
 - **AGEL-Comp: A Neuro-Symbolic Framework for Compositional Generalization in Interactive Agents**. *Mahnoor Shahid, Hannes Rothe*. [[paper](https://arxiv.org/abs/2604.26522)] [[pdf](https://arxiv.org/pdf/2604.26522)], 2026-04.
 - **Barriers to Universal Reasoning With Transformers (And How to Overcome Them)**. *Oliver Kraus, Yash Sarrof, Yuekun Yao, Alexander Koller, Michael Hahn*. [[paper](https://arxiv.org/abs/2604.25800)] [[pdf](https://arxiv.org/pdf/2604.25800)], 2026-04.
 - **Rational Transductors**. *Mehryar Mohri*. [[paper](https://arxiv.org/abs/2602.07599)] [[pdf](https://arxiv.org/pdf/2602.07599)], 2026-02.
+- **Arithmetic Transformers Can Length-Generalize in Both Operand Length and Count**. *Hanseul Cho, Jaeyoung Cha, Srinadh Bhojanapalli, Chulhee Yun*. [[paper](https://arxiv.org/abs/2410.15787)] [[pdf](https://arxiv.org/pdf/2410.15787)], 2024-10.
 
 #### Latent recurrence and equilibrium computation
 
@@ -184,6 +195,7 @@ The first three pillars concern interventions. The fourth separates behavioral o
 - **Beyond Memorization: Testing LLM Reasoning on Unseen Theory of Computation Tasks**. *Shlok Shelat, Jay Raval, Souvik Roy, Manas Gaur*. [[paper](https://arxiv.org/abs/2601.13392)] [[pdf](https://arxiv.org/pdf/2601.13392)], 2026-01.
 - **Generalization of RLVR Using Causal Reasoning as a Testbed**. *Brian Lu, Hongyu Zhao, Shuo Sun, Hao Peng, Rui Ding, Hongyuan Mei*. [[paper](https://arxiv.org/abs/2512.20760)] [[pdf](https://arxiv.org/pdf/2512.20760)], 2025-12.
 - **On the Interplay of Pre-Training, Mid-Training, and RL on Reasoning Language Models**. *Charlie Zhang, Graham Neubig, Xiang Yue*. [[paper](https://arxiv.org/abs/2512.07783)] [[pdf](https://arxiv.org/pdf/2512.07783)], 2025-12.
+- **Exploring Depth Generalization in Large Language Models for Solving Recursive Logic Tasks**. *Zhiyuan He*. [[paper](https://arxiv.org/abs/2512.02677)] [[pdf](https://arxiv.org/pdf/2512.02677)], 2025-12.
 - **Revisiting Generalization Across Difficulty Levels: It's Not So Easy**. *Yeganeh Kordi, Nihal V. Nayak, Max Zuo, Ilana Nguyen, Stephen H. Bach*. [[paper](https://arxiv.org/abs/2511.21692)] [[pdf](https://arxiv.org/pdf/2511.21692)], 2025-11.
 - **RL Grokking Recipe: How Does RL Unlock and Transfer New Algorithms in LLMs?**. *Yiyou Sun, Yuhan Cao, Pohao Huang, Haoyue Bai, Hannaneh Hajishirzi, Nouha Dziri, Dawn Song*. [[paper](https://arxiv.org/abs/2509.21016)] [[pdf](https://arxiv.org/pdf/2509.21016)], 2025-09.
 - **Is Chain-of-Thought Reasoning of LLMs a Mirage? A Data Distribution Lens**. *Chengshuai Zhao, Zhen Tan, Pingchuan Ma, Dawei Li, Bohan Jiang, Yancheng Wang, Yingzhen Yang, Huan Liu*. [[paper](https://arxiv.org/abs/2508.01191)] [[pdf](https://arxiv.org/pdf/2508.01191)], 2025-08.
@@ -192,7 +204,15 @@ The first three pillars concern interventions. The fourth separates behavioral o
 - **Extrapolation by Association: Length Generalization Transfer in Transformers**. *Ziyang Cai, Nayoung Lee, Avi Schwarzschild, Samet Oymak, Dimitris Papailiopoulos*. [[paper](https://arxiv.org/abs/2506.09251)] [[pdf](https://arxiv.org/pdf/2506.09251)], 2025-06.
 - **Reinforcement Learning for Reasoning in Large Language Models with One Training Example**. *Yiping Wang, Qing Yang, Zhiyuan Zeng, Liliang Ren, Liyuan Liu, Baolin Peng, Hao Cheng, Xuehai He, Kuan Wang, Jianfeng Gao, Weizhu Chen, Shuohang Wang, Simon Shaolei Du, Yelong Shen*. [[paper](https://arxiv.org/abs/2504.20571)] [[pdf](https://arxiv.org/pdf/2504.20571)], 2025-04.
 - **Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?**. *Yang Yue, Zhiqi Chen, Rui Lu, Andrew Zhao, Zhaokai Wang, Yang Yue, Shiji Song, Gao Huang*. [[paper](https://arxiv.org/abs/2504.13837)] [[pdf](https://arxiv.org/pdf/2504.13837)], 2025-04.
+- **Compositional-ARC: Assessing Systematic Generalization in Abstract Spatial Reasoning**. *Philipp Mondorf, Shijia Zhou, Monica Riedler, Barbara Plank*. [[paper](https://arxiv.org/abs/2504.01445)] [[pdf](https://arxiv.org/pdf/2504.01445)], 2025-04.
 - **SFT Memorizes, RL Generalizes: A Comparative Study of Foundation Model Post-training**. *Tianzhe Chu, Yuexiang Zhai, Jihan Yang, Shengbang Tong, Saining Xie, Dale Schuurmans, Quoc V. Le, Sergey Levine, Yi Ma*. [[paper](https://arxiv.org/abs/2501.17161)] [[pdf](https://arxiv.org/pdf/2501.17161)], 2025-01.
+- **MathGAP: Out-of-Distribution Evaluation on Problems with Arbitrarily Complex Proofs**. *Andreas Opedal, Haruki Shirakami, Bernhard Schölkopf, Abulhair Saparov, Mrinmaya Sachan*. [[paper](https://arxiv.org/abs/2410.13502)] [[pdf](https://arxiv.org/pdf/2410.13502)], 2024-10.
+- **The Mystery of Compositional Generalization in Graph-based Generative Commonsense Reasoning**. *Xiyan Fu, Anette Frank*. [[paper](https://arxiv.org/abs/2410.06272)] [[pdf](https://arxiv.org/pdf/2410.06272)], 2024-10.
+- **GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models**. *Iman Mirzadeh, Keivan Alizadeh, Hooman Shahrokhi, Oncel Tuzel, Samy Bengio, Mehrdad Farajtabar*. [[paper](https://arxiv.org/abs/2410.05229)] [[pdf](https://arxiv.org/pdf/2410.05229)], 2024-10.
+- **Rule Extrapolation in Language Models: A Study of Compositional Generalization on OOD Prompts**. *Anna Mészáros, Szilvia Ujváry, Wieland Brendel, Patrik Reizinger, Ferenc Huszár*. [[paper](https://arxiv.org/abs/2409.13728)] [[pdf](https://arxiv.org/pdf/2409.13728)], 2024-09.
+- **modeLing: A Novel Dataset for Testing Linguistic Reasoning in Language Models**. *Nathan A. Chi, Teodor Malchev, Riley Kong, Ryan A. Chi, Lucas Huang, Ethan A. Chi, R. Thomas McCoy, Dragomir Radev*. [[paper](https://arxiv.org/abs/2406.17038)] [[pdf](https://arxiv.org/pdf/2406.17038)], 2024-06.
+- **GSM-Plus: A Comprehensive Benchmark for Evaluating the Robustness of LLMs as Mathematical Problem Solvers**. *Qintong Li, Leyang Cui, Xueliang Zhao, Lingpeng Kong, Wei Bi*. [[paper](https://arxiv.org/abs/2402.19255)] [[pdf](https://arxiv.org/pdf/2402.19255)], 2024-02.
+- **Transformers Can Achieve Length Generalization But Not Robustly**. *Yongchao Zhou, Uri Alon, Xinyun Chen, Xuezhi Wang, Rishabh Agarwal, Denny Zhou*. [[paper](https://arxiv.org/abs/2402.09371)] [[pdf](https://arxiv.org/pdf/2402.09371)], 2024-02.
 - **Grokking of Hierarchical Structure in Vanilla Transformers**. *Shikhar Murty, Pratyusha Sharma, Jacob Andreas, Christopher D. Manning*. [[paper](https://arxiv.org/abs/2305.18741)] [[pdf](https://arxiv.org/pdf/2305.18741)], 2023-05.
 - **Exploring Length Generalization in Large Language Models**. *Cem Anil, Yuhuai Wu, Anders Andreassen, Aitor Lewkowycz, Vedant Misra, Vinay Ramasesh, Ambrose Slone, Guy Gur-Ari, Ethan Dyer, Behnam Neyshabur*. [[paper](https://arxiv.org/abs/2207.04901)] [[pdf](https://arxiv.org/pdf/2207.04901)], 2022-07.
 - **Generalization without systematicity: On the compositional skills of sequence-to-sequence recurrent networks**. *Brenden M. Lake, Marco Baroni*. [[paper](https://arxiv.org/abs/1711.00350)] [[pdf](https://arxiv.org/pdf/1711.00350)], 2017-10.
@@ -216,7 +236,9 @@ The first three pillars concern interventions. The fourth separates behavioral o
 - **RL Fine-Tuning Heals OOD Forgetting in SFT**. *Hangzhan Jin, Sitao Luan, Tianwei Ni, Sicheng Lyu, Guillaume Rabusseau, Reihaneh Rabbany, Doina Precup, Mohammad Hamdaqa*. [[paper](https://arxiv.org/abs/2509.12235)] [[pdf](https://arxiv.org/pdf/2509.12235)], 2025-09.
 - **Does Math Reasoning Improve General LLM Capabilities? Understanding Transferability of LLM Reasoning**. *Maggie Huan, Yuetai Li, Tuney Zheng, Xiaoyu Xu, Seungone Kim, Minxin Du, Radha Poovendran, Graham Neubig, Xiang Yue*. [[paper](https://arxiv.org/abs/2507.00432)] [[pdf](https://arxiv.org/pdf/2507.00432)], 2025-07.
 - **Decomposing Elements of Problem Solving: What "Math" Does RL Teach?**. *Tian Qin, Core Francisco Park, Mujin Kwun, Aaron Walsman, Eran Malach, Nikhil Anand, Hidenori Tanaka, David Alvarez-Melis*. [[paper](https://arxiv.org/abs/2505.22756)] [[pdf](https://arxiv.org/pdf/2505.22756)], 2025-05.
+- **Characterizing Pattern Matching and Its Limits on Compositional Task Structures**. *Hoyeon Chang, Jinho Park, Hanseul Cho, Sohee Yang, Miyoung Ko, Hyeonbin Hwang, Seungpil Won, Dohaeng Lee, Youbin Ahn, Minjoon Seo*. [[paper](https://arxiv.org/abs/2505.20278)] [[pdf](https://arxiv.org/pdf/2505.20278)], 2025-05.
 - **Finite State Automata Inside Transformers with Chain-of-Thought: A Mechanistic Study on State Tracking**. *Yifan Zhang, Wenyu Du, Dongming Jin, Jie Fu, Zhi Jin*. [[paper](https://arxiv.org/abs/2502.20129)] [[pdf](https://arxiv.org/pdf/2502.20129)], 2025-02.
+- **Compositional Generalization from Learned Skills via CoT Training: A Theoretical and Structural Analysis for Reasoning**. *Xinhao Yao, Ruifeng Ren, Yun Liao, Lizhong Ding, Yong Liu*. [[paper](https://arxiv.org/abs/2502.04667)] [[pdf](https://arxiv.org/pdf/2502.04667)], 2025-02.
 - **Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization**. *Boshi Wang, Xiang Yue, Yu Su, Huan Sun*. [[paper](https://arxiv.org/abs/2405.15071)] [[pdf](https://arxiv.org/pdf/2405.15071)], 2024-05.
 
 #### Theoretical analysis
@@ -230,6 +252,7 @@ The first three pillars concern interventions. The fourth separates behavioral o
 - **Length Generalization Bounds for Transformers**. *Andy Yang, Pascal Bergsträßer, Georg Zetzsche, David Chiang, Anthony W. Lin*. [[paper](https://arxiv.org/abs/2603.02238)] [[pdf](https://arxiv.org/pdf/2603.02238)], 2026-02.
 - **Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization**. *Yu Huang, Zixin Wen, Aarti Singh, Yuejie Chi, Yuxin Chen*. [[paper](https://arxiv.org/abs/2511.07378)] [[pdf](https://arxiv.org/pdf/2511.07378)], 2025-11.
 - **How Far Can Transformers Reason? The Globality Barrier and Inductive Scratchpad**. *Emmanuel Abbe, Samy Bengio, Aryo Lotfi, Colin Sandon, Omid Saremi*. [[paper](https://arxiv.org/abs/2406.06467)] [[pdf](https://arxiv.org/pdf/2406.06467)], 2024-06.
+- **On Provable Length and Compositional Generalization**. *Kartik Ahuja, Amin Mansouri*. [[paper](https://arxiv.org/abs/2402.04875)] [[pdf](https://arxiv.org/pdf/2402.04875)], 2024-02.
 - **What Algorithms can Transformers Learn? A Study in Length Generalization**. *Hattie Zhou, Arwen Bradley, Etai Littwin, Noam Razin, Omid Saremi, Josh Susskind, Samy Bengio, Preetum Nakkiran*. [[paper](https://arxiv.org/abs/2310.16028)] [[pdf](https://arxiv.org/pdf/2310.16028)], 2023-10.
 
 

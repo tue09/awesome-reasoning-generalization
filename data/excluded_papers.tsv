@@ -13,3 +13,5 @@ arxiv_id	title	exclusion_reason
 2305.10601	Tree of Thoughts: Deliberate Problem Solving with Large Language Models	Shows search-time reasoning gains on several tasks without a training-to-test generalization design.
 2203.11171	Self-Consistency Improves Chain of Thought Reasoning in Language Models	Shows decoding gains on standard reasoning benchmarks without a named transfer shift.
 2201.11903	Chain-of-Thought Prompting Elicits Reasoning in Large Language Models	Establishes a prompting method and benchmark gains but does not test reasoning generalization under a specified shift.
+2409.19808	Can Models Learn Skill Composition from Examples?	Studies composition of broad writing skills, only some of which are reasoning skills, so the primary task falls outside the survey's reasoning scope.
+2410.19084	GCoder: Improving Large Language Model for Generalized Graph Problem Solving	Reports broad graph-task and format gains, but the abstract does not specify a controlled reference-to-target split for the claimed unseen tasks.

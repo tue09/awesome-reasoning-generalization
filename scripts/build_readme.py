@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 import csv
-from collections import OrderedDict
+from collections import Counter, OrderedDict
 from pathlib import Path
 
 
@@ -194,7 +194,7 @@ def load_rows() -> list[dict[str, str]]:
 def build() -> str:
     rows = load_rows()
     core = [row for row in rows if row["pillar"] in {"training", "inference", "architecture", "analysis"}]
-    year_2026 = sum(row["published"].startswith("2026") for row in core)
+    year_counts = Counter(row["published"][:4] for row in core)
 
     grouped = {
         pillar: {subsection: [] for subsection in subsections}
@@ -220,12 +220,19 @@ def build() -> str:
         "",
         "[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)",
         f"![Core papers](https://img.shields.io/badge/core%20papers-{len(core)}-6f42c1)",
-        f"![2026 papers](https://img.shields.io/badge/2026%20papers-{year_2026}-1f77b4)",
+        f"![2024 papers](https://img.shields.io/badge/2024%20papers-{year_counts['2024']}-8c6bb1)",
+        f"![2025 papers](https://img.shields.io/badge/2025%20papers-{year_counts['2025']}-3182bd)",
+        f"![2026 papers](https://img.shields.io/badge/2026%20papers-{year_counts['2026']}-1f77b4)",
         "[![GitHub last commit](https://img.shields.io/github/last-commit/tue09/awesome-reasoning-generalization?logo=github&color=blue)](https://github.com/tue09/awesome-reasoning-generalization/commits/main)",
         "",
         "</div>",
         "",
-        "> **Status:** The literature search was updated on 8 September 2026. The corpus contains 124 core studies, including 86 first posted in 2026.",
+        (
+            "> **Status:** The literature search was updated on 10 September 2026. "
+            f"The corpus contains {len(core)} core studies: {year_counts['2026']} from 2026, "
+            f"{year_counts['2025']} from 2025, {year_counts['2024']} from 2024, "
+            f"and {sum(count for year, count in year_counts.items() if year < '2024')} earlier foundations."
+        ),
         "",
         "## Contents",
         "",

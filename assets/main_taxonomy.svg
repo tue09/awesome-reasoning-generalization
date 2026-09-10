@@ -121,7 +121,7 @@
   <text x="1040" y="124" class="leaf-head" fill="#5b21b6">Training exposure and capability boundaries</text>
   <text x="1040" y="145" class="leaf-text">controlled pre-training, mid-training, and RL exposure  •  Interplay of Training Stages (2025)</text>
   <text x="1040" y="179" class="leaf-head" fill="#5b21b6">Continued pre-training and curricula</text>
-  <text x="1040" y="200" class="leaf-text">long-context adaptation, randomized positions, verified synthesis  •  Randomized YaRN; Left-Shift (2026)</text>
+  <text x="1040" y="200" class="leaf-text">verified state traces and positional curricula  •  TAIL (2025); Randomized YaRN; Left-Shift (2026)</text>
 
   <!-- Post-training children -->
   <line x1="990" y1="295" x2="1000" y2="295" stroke="#7c3aed" stroke-width="3"/>
@@ -147,11 +147,11 @@
   <line x1="1358" y1="290" x2="1382" y2="290" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
   <line x1="1358" y1="345" x2="1382" y2="345" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
   <text x="1410" y="229" class="leaf-head" fill="#5b21b6">SFT and distillation: expose transferable procedures</text>
-  <text x="1410" y="250" class="leaf-text">rule targets, negative traces, student compatibility  •  Theorem-SFT; IGA; DC-SFT (2026)</text>
+  <text x="1410" y="250" class="leaf-text">composable traces, rule targets, negative evidence  •  Composable CoT (2025); Theorem-SFT; IGA (2026)</text>
   <text x="1410" y="284" class="leaf-head" fill="#5b21b6">Select and compose procedures with feedback</text>
-  <text x="1410" y="305" class="leaf-text">RLVR, process and counterfactual rewards, domain transfer  •  CEDAR-GRPO; RACES; GRAIN (2026)</text>
+  <text x="1410" y="305" class="leaf-text">process rewards and skill composition  •  GraphPRM; LogicPuzzleRL; f∘g RL (2025); GRAIN (2026)</text>
   <text x="1410" y="339" class="leaf-head" fill="#5b21b6">Combine learning stages and generated experience</text>
-  <text x="1410" y="360" class="leaf-text">SFT-to-RL handoff, self-play, synthetic skills, controllers  •  Rejuvenation; STEPS; CALM (2026)</text>
+  <text x="1410" y="360" class="leaf-text">iterative self-training and stage handoffs  •  Self-Improving Transformers (2025); STEPS; CALM (2026)</text>
 
   <!-- Inference branches -->
   <g fill="#f4f9ff" stroke="#3b82d0" stroke-width="3">
@@ -219,9 +219,9 @@
   <text x="1040" y="754" class="leaf-head" fill="#065f46">Shared transition, variable compute, learned halting</text>
   <text x="1040" y="776" class="leaf-text">looped transformers, depth recurrence, stochastic stopping  •  Loop-Think-Generalize; Equilibrium Reasoners (2026)</text>
   <text x="1040" y="817" class="leaf-head" fill="#065f46">Relative coordinates and task-aligned neighborhoods</text>
-  <text x="1040" y="839" class="leaf-text">RoPE frequency use, randomized positions, local recurrent computation  •  RFS; Locality; RoPE Frequency (2026)</text>
+  <text x="1040" y="839" class="leaf-text">task-aligned coordinates and local updates  •  Position Coupling; Structural Symmetry (2024); RFS (2026)</text>
   <text x="1040" y="880" class="leaf-head" fill="#065f46">Reusable subroutines and exact state</text>
-  <text x="1040" y="902" class="leaf-text">MoE and routing, causal graphs, theorem provers, automata recurrence  •  AGEL-Comp; Rational Transductors (2026)</text>
+  <text x="1040" y="902" class="leaf-text">structured scratchpads, causal graphs, symbolic state  •  Arithmetic Transformers (2024); AGEL-Comp (2026)</text>
   <text x="1040" y="943" class="leaf-head" fill="#065f46">Iterative hidden-state computation</text>
   <text x="1040" y="965" class="leaf-text">recursive latent reasoning, energy minimization, attractors, stable dynamics  •  Think Shallow, Solve Deep (2026)</text>
 
@@ -272,15 +272,15 @@
   <line x1="1358" y1="1204" x2="1382" y2="1204" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
   <line x1="1358" y1="1266" x2="1382" y2="1266" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
   <text x="1410" y="1020" class="leaf-head" fill="#92400e">surface, composition, length/depth, difficulty, domain, language, modality</text>
-  <text x="1410" y="1042" class="leaf-text">examples: General365; XDomainBench; numeric remapping; OOD visual planning (2026)</text>
+  <text x="1410" y="1042" class="leaf-text">GSM-Plus; GSM-Symbolic; CGGC (2024)  •  General365; XDomainBench (2026)</text>
   <text x="1410" y="1074" class="leaf-head" fill="#92400e">thresholds, grokking, easy-to-hard transfer, overthinking, compute-cost curves</text>
-  <text x="1410" y="1096" class="leaf-text">test whether more data, scale, or thinking expands the learned capability region</text>
+  <text x="1410" y="1096" class="leaf-text">MathGAP (2024); Depth Generalization (2025)  •  test whether added compute expands capability</text>
   <text x="1410" y="1128" class="leaf-head" fill="#92400e">contamination, sealed generators, fresh symbols, counterfactuals, matched compute</text>
-  <text x="1410" y="1150" class="leaf-text">separate recall, format adaptation, candidate coverage, selection, and genuine procedure transfer</text>
+  <text x="1410" y="1150" class="leaf-text">modeLing (2024); sealed generators; fresh symbols  •  separate recall from procedure transfer</text>
   <text x="1410" y="1197" class="leaf-head" fill="#92400e">circuits, representation alignment, routing, learning dynamics, causal intervention</text>
-  <text x="1410" y="1219" class="leaf-text">Shared Circuits; Two-Hop Generalization; Self-Patching; RASP Decompilation; Grokking Signals (2026)</text>
+  <text x="1410" y="1219" class="leaf-text">CoT Composition; Pattern Matching Limits (2025)  •  Shared Circuits; Self-Patching (2026)</text>
   <text x="1410" y="1259" class="leaf-head" fill="#92400e">expressivity vs. learnability; RASP/languages; equivariance; bounds; impossibility</text>
-  <text x="1410" y="1281" class="leaf-text">Algebraic Decomposition; CoT Length Guarantees; Relative Positions; Length Bounds (2025-2026)</text>
+  <text x="1410" y="1281" class="leaf-text">Provable Length &amp; Composition; How Far (2024)  •  CoT Guarantees; Algebraic Decomposition</text>
 
-  <text x="2380" y="1330" text-anchor="end" class="tiny">Evidence corpus: 124 core studies + 6 contextual sources • Updated 2026-09-08 • Source: survey.md</text>
+  <text x="2380" y="1330" text-anchor="end" class="tiny">Evidence corpus: 145 core studies + 6 contextual sources  •  2024: 14  •  2025: 39  •  2026: 86  •  Updated 2026-09-10</text>
 </svg>
