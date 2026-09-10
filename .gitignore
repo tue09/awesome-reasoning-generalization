@@ -1,0 +1,12 @@
+# Local paper archives are intentionally not published.
+paper/
+excluded_paper/
+
+# Temporary and machine-local files.
+tmp/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Duplicate render retained locally for compatibility with earlier tooling.
+build/main_taxonomy.svg.png

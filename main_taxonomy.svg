@@ -1,0 +1,286 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1350" width="2400" height="1350" role="img" aria-labelledby="title desc">
+  <title id="title">Taxonomy of reasoning generalization in large language models</title>
+  <desc id="desc">A left-to-right tree with four pillars: training, inference, architecture, and analysis. Each pillar branches into method families and detailed concepts with representative recent papers.</desc>
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&amp;display=swap');
+      text { font-family: 'Comic Sans MS', 'Segoe Print', 'Bradley Hand', cursive, sans-serif; }
+      .title { font-size: 31px; font-weight: 700; fill: #172033; }
+      .subtitle { font-size: 17px; fill: #586174; }
+      .root { font-size: 25px; font-weight: 700; fill: #263143; }
+      .pillar { font-size: 23px; font-weight: 700; }
+      .branch { font-size: 19px; font-weight: 700; }
+      .leaf-head { font-size: 17px; font-weight: 700; }
+      .leaf-text { font-size: 15px; fill: #303744; }
+      .tiny { font-size: 13px; fill: #657083; }
+    </style>
+
+    <filter id="sketchy" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="turbulence" baseFrequency="0.025" numOctaves="4" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <pattern id="hatch-purple" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#b7a6e8" stroke-width="1.4" opacity="0.42"/>
+    </pattern>
+    <pattern id="hatch-blue" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#9fc5ef" stroke-width="1.4" opacity="0.42"/>
+    </pattern>
+    <pattern id="hatch-green" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#8bc7a1" stroke-width="1.4" opacity="0.42"/>
+    </pattern>
+    <pattern id="hatch-orange" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#edc477" stroke-width="1.4" opacity="0.42"/>
+    </pattern>
+    <pattern id="hatch-gray" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#aeb5bd" stroke-width="1.5" opacity="0.42"/>
+    </pattern>
+
+    <marker id="arrow-gray" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 2 3 L 10 6 L 2 9 Z" fill="#667085"/>
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 2 3 L 10 6 L 2 9 Z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 2 3 L 10 6 L 2 9 Z" fill="#3b82d0"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 2 3 L 10 6 L 2 9 Z" fill="#2d8a4e"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M 2 3 L 10 6 L 2 9 Z" fill="#d27a0a"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="2400" height="1350" fill="#fffdfa"/>
+  <text x="1200" y="45" text-anchor="middle" class="title">Beyond the Training Distribution</text>
+  <text x="1200" y="76" text-anchor="middle" class="subtitle">Taxonomy of Reasoning Generalization in Large Language Models</text>
+
+  <!-- Root -->
+  <rect x="28" y="430" width="118" height="484" rx="29" fill="url(#hatch-gray)" stroke="#626870" stroke-width="4" filter="url(#sketchy)"/>
+  <rect x="28" y="430" width="118" height="484" rx="29" fill="#f1f3f5" opacity="0.40"/>
+  <rect x="28" y="430" width="118" height="484" rx="29" fill="none" stroke="#9198a0" stroke-width="1.4" stroke-dasharray="9 9"/>
+  <text x="87" y="681" text-anchor="middle" class="root" transform="rotate(-90 87 672)">Reasoning Generalization in LLMs</text>
+
+  <!-- Root trunk and four pillar connections, no filters on connectors -->
+  <line x1="154" y1="672" x2="282" y2="672" stroke="#667085" stroke-width="4"/>
+  <line x1="282" y1="262" x2="282" y2="1160" stroke="#667085" stroke-width="4"/>
+  <line x1="282" y1="262" x2="304" y2="262" stroke="#7c3aed" stroke-width="4" marker-end="url(#arrow-purple)"/>
+  <line x1="282" y1="560" x2="304" y2="560" stroke="#3b82d0" stroke-width="4" marker-end="url(#arrow-blue)"/>
+  <line x1="282" y1="865" x2="304" y2="865" stroke="#2d8a4e" stroke-width="4" marker-end="url(#arrow-green)"/>
+  <line x1="282" y1="1160" x2="304" y2="1160" stroke="#d27a0a" stroke-width="4" marker-end="url(#arrow-orange)"/>
+
+  <!-- Main pillars -->
+  <rect x="312" y="222" width="286" height="80" rx="15" fill="url(#hatch-purple)" stroke="#7c3aed" stroke-width="4" filter="url(#sketchy)"/>
+  <rect x="312" y="222" width="286" height="80" rx="15" fill="#ede9fe" opacity="0.45"/>
+  <text x="455" y="252" text-anchor="middle" class="pillar" fill="#5b21b6"><tspan x="455">1. Training for</tspan><tspan x="455" dy="29">Generalization</tspan></text>
+
+  <rect x="312" y="520" width="286" height="80" rx="15" fill="url(#hatch-blue)" stroke="#3b82d0" stroke-width="4" filter="url(#sketchy)"/>
+  <rect x="312" y="520" width="286" height="80" rx="15" fill="#dbeafe" opacity="0.45"/>
+  <text x="455" y="550" text-anchor="middle" class="pillar" fill="#1e40af"><tspan x="455">2. Inference for</tspan><tspan x="455" dy="29">Generalization</tspan></text>
+
+  <rect x="312" y="825" width="286" height="80" rx="15" fill="url(#hatch-green)" stroke="#2d8a4e" stroke-width="4" filter="url(#sketchy)"/>
+  <rect x="312" y="825" width="286" height="80" rx="15" fill="#d1fae5" opacity="0.42"/>
+  <text x="455" y="855" text-anchor="middle" class="pillar" fill="#065f46"><tspan x="455">3. Architecture for</tspan><tspan x="455" dy="29">Generalization</tspan></text>
+
+  <rect x="312" y="1120" width="286" height="80" rx="15" fill="url(#hatch-orange)" stroke="#d27a0a" stroke-width="4" filter="url(#sketchy)"/>
+  <rect x="312" y="1120" width="286" height="80" rx="15" fill="#fef3c7" opacity="0.46"/>
+  <text x="455" y="1150" text-anchor="middle" class="pillar" fill="#92400e"><tspan x="455">4. Analysis of</tspan><tspan x="455" dy="29">Generalization</tspan></text>
+
+  <!-- Pillar-to-branch trunks -->
+  <line x1="604" y1="262" x2="628" y2="262" stroke="#7c3aed" stroke-width="3"/>
+  <line x1="628" y1="130" x2="628" y2="295" stroke="#7c3aed" stroke-width="3"/>
+  <line x1="604" y1="560" x2="628" y2="560" stroke="#3b82d0" stroke-width="3"/>
+  <line x1="628" y1="442" x2="628" y2="613" stroke="#3b82d0" stroke-width="3"/>
+  <line x1="604" y1="865" x2="628" y2="865" stroke="#2d8a4e" stroke-width="3"/>
+  <line x1="628" y1="760" x2="628" y2="950" stroke="#2d8a4e" stroke-width="3"/>
+  <line x1="604" y1="1160" x2="628" y2="1160" stroke="#d27a0a" stroke-width="3"/>
+  <line x1="628" y1="1085" x2="628" y2="1230" stroke="#d27a0a" stroke-width="3"/>
+
+  <!-- Training branches -->
+  <g fill="#f7f4ff" stroke="#7c3aed" stroke-width="3">
+    <rect x="652" y="110" width="330" height="40" rx="10" filter="url(#sketchy)"/>
+    <rect x="652" y="165" width="330" height="40" rx="10" filter="url(#sketchy)"/>
+    <rect x="652" y="275" width="330" height="40" rx="10" filter="url(#sketchy)"/>
+  </g>
+  <text x="817" y="137" text-anchor="middle" class="branch" fill="#5b21b6">Pre-training</text>
+  <text x="817" y="192" text-anchor="middle" class="branch" fill="#5b21b6">Mid-training</text>
+  <text x="817" y="302" text-anchor="middle" class="branch" fill="#5b21b6">Post-training</text>
+  <line x1="628" y1="130" x2="644" y2="130" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <line x1="628" y1="185" x2="644" y2="185" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <line x1="628" y1="295" x2="644" y2="295" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+
+  <!-- Training leaves -->
+  <g fill="#faf8ff" stroke="#c7b8ef" stroke-width="2.4">
+    <rect x="1020" y="105" width="1345" height="50" rx="12" filter="url(#sketchy)"/>
+    <rect x="1020" y="160" width="1345" height="50" rx="12" filter="url(#sketchy)"/>
+  </g>
+  <line x1="990" y1="130" x2="1012" y2="130" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <line x1="990" y1="185" x2="1012" y2="185" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <text x="1040" y="124" class="leaf-head" fill="#5b21b6">Training exposure and capability boundaries</text>
+  <text x="1040" y="145" class="leaf-text">controlled pre-training, mid-training, and RL exposure  •  Interplay of Training Stages (2025)</text>
+  <text x="1040" y="179" class="leaf-head" fill="#5b21b6">Continued pre-training and curricula</text>
+  <text x="1040" y="200" class="leaf-text">long-context adaptation, randomized positions, verified synthesis  •  Randomized YaRN; Left-Shift (2026)</text>
+
+  <!-- Post-training children -->
+  <line x1="990" y1="295" x2="1000" y2="295" stroke="#7c3aed" stroke-width="3"/>
+  <line x1="1000" y1="235" x2="1000" y2="345" stroke="#7c3aed" stroke-width="3"/>
+  <g fill="#f7f4ff" stroke="#7c3aed" stroke-width="2.6">
+    <rect x="1020" y="215" width="330" height="40" rx="10" filter="url(#sketchy)"/>
+    <rect x="1020" y="270" width="330" height="40" rx="10" filter="url(#sketchy)"/>
+    <rect x="1020" y="325" width="330" height="40" rx="10" filter="url(#sketchy)"/>
+  </g>
+  <line x1="1000" y1="235" x2="1012" y2="235" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <line x1="1000" y1="290" x2="1012" y2="290" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <line x1="1000" y1="345" x2="1012" y2="345" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <text x="1185" y="242" text-anchor="middle" class="branch" fill="#5b21b6">Supervised adaptation</text>
+  <text x="1185" y="297" text-anchor="middle" class="branch" fill="#5b21b6">RL &amp; reward design</text>
+  <text x="1185" y="352" text-anchor="middle" class="branch" fill="#5b21b6">Hybrid &amp; self-improvement</text>
+
+  <g fill="#faf8ff" stroke="#c7b8ef" stroke-width="2.4">
+    <rect x="1390" y="210" width="975" height="50" rx="12" filter="url(#sketchy)"/>
+    <rect x="1390" y="265" width="975" height="50" rx="12" filter="url(#sketchy)"/>
+    <rect x="1390" y="320" width="975" height="50" rx="12" filter="url(#sketchy)"/>
+  </g>
+  <line x1="1358" y1="235" x2="1382" y2="235" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <line x1="1358" y1="290" x2="1382" y2="290" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <line x1="1358" y1="345" x2="1382" y2="345" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <text x="1410" y="229" class="leaf-head" fill="#5b21b6">SFT and distillation: expose transferable procedures</text>
+  <text x="1410" y="250" class="leaf-text">rule targets, negative traces, student compatibility  •  Theorem-SFT; IGA; DC-SFT (2026)</text>
+  <text x="1410" y="284" class="leaf-head" fill="#5b21b6">Select and compose procedures with feedback</text>
+  <text x="1410" y="305" class="leaf-text">RLVR, process and counterfactual rewards, domain transfer  •  CEDAR-GRPO; RACES; GRAIN (2026)</text>
+  <text x="1410" y="339" class="leaf-head" fill="#5b21b6">Combine learning stages and generated experience</text>
+  <text x="1410" y="360" class="leaf-text">SFT-to-RL handoff, self-play, synthetic skills, controllers  •  Rejuvenation; STEPS; CALM (2026)</text>
+
+  <!-- Inference branches -->
+  <g fill="#f4f9ff" stroke="#3b82d0" stroke-width="3">
+    <rect x="652" y="420" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+    <rect x="652" y="477" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+    <rect x="652" y="534" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+    <rect x="652" y="591" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+  </g>
+  <text x="817" y="448" text-anchor="middle" class="branch" fill="#1e40af">Prompt &amp; decompose</text>
+  <text x="817" y="505" text-anchor="middle" class="branch" fill="#1e40af">Sample &amp; search</text>
+  <text x="817" y="562" text-anchor="middle" class="branch" fill="#1e40af">Verify, repair &amp; stop</text>
+  <text x="817" y="619" text-anchor="middle" class="branch" fill="#1e40af">Tools &amp; memory</text>
+  <line x1="628" y1="442" x2="644" y2="442" stroke="#3b82d0" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="628" y1="499" x2="644" y2="499" stroke="#3b82d0" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="628" y1="556" x2="644" y2="556" stroke="#3b82d0" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="628" y1="613" x2="644" y2="613" stroke="#3b82d0" stroke-width="3" marker-end="url(#arrow-blue)"/>
+
+  <!-- Inference leaves -->
+  <g fill="#f7fbff" stroke="#abccee" stroke-width="2.4">
+    <rect x="1020" y="413" width="1345" height="58" rx="12" filter="url(#sketchy)"/>
+    <rect x="1020" y="470" width="1345" height="58" rx="12" filter="url(#sketchy)"/>
+    <rect x="1020" y="527" width="1345" height="58" rx="12" filter="url(#sketchy)"/>
+    <rect x="1020" y="584" width="1345" height="58" rx="12" filter="url(#sketchy)"/>
+  </g>
+  <line x1="990" y1="442" x2="1012" y2="442" stroke="#3b82d0" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="990" y1="499" x2="1012" y2="499" stroke="#3b82d0" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="990" y1="556" x2="1012" y2="556" stroke="#3b82d0" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="990" y1="613" x2="1012" y2="613" stroke="#3b82d0" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text x="1040" y="436" class="leaf-head" fill="#1e40af">Elicit a reusable procedure</text>
+  <text x="1040" y="458" class="leaf-text">easy-to-hard decomposition, constraint transfer, routed hints  •  Least-to-Most; CFR; Test-Time Hinting</text>
+  <text x="1040" y="493" class="leaf-head" fill="#1e40af">Explore and aggregate candidate paths</text>
+  <text x="1040" y="515" class="leaf-text">candidate coverage, error-localized branching, valid-prefix reuse  •  TTEL cross-domain transfer (2026)</text>
+  <text x="1040" y="550" class="leaf-head" fill="#1e40af">Transfer validity detection and inference control</text>
+  <text x="1040" y="572" class="leaf-text">unseen benchmarks, cross-domain monitors, prefix reuse  •  Validity Detector; TTEL; UPAIR (2026)</text>
+  <text x="1040" y="607" class="leaf-head" fill="#1e40af">Externalize exact operations and reusable experience</text>
+  <text x="1040" y="629" class="leaf-text">tool-based length transfer, cross-task memory, modular online reuse  •  To Infinity; ReasoningBank; MILES</text>
+
+  <!-- Architecture branches -->
+  <g fill="#f3fbf6" stroke="#2d8a4e" stroke-width="3">
+    <rect x="652" y="738" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+    <rect x="652" y="801" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+    <rect x="652" y="864" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+    <rect x="652" y="927" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+  </g>
+  <text x="817" y="766" text-anchor="middle" class="branch" fill="#065f46">Recurrent depth</text>
+  <text x="817" y="829" text-anchor="middle" class="branch" fill="#065f46">Position &amp; locality</text>
+  <text x="817" y="892" text-anchor="middle" class="branch" fill="#065f46">Modules &amp; symbols</text>
+  <text x="817" y="955" text-anchor="middle" class="branch" fill="#065f46">Latent &amp; equilibrium</text>
+  <line x1="628" y1="760" x2="644" y2="760" stroke="#2d8a4e" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <line x1="628" y1="823" x2="644" y2="823" stroke="#2d8a4e" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <line x1="628" y1="886" x2="644" y2="886" stroke="#2d8a4e" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <line x1="628" y1="949" x2="644" y2="949" stroke="#2d8a4e" stroke-width="3" marker-end="url(#arrow-green)"/>
+
+  <!-- Architecture leaves -->
+  <g fill="#f6fcf8" stroke="#a5d5b5" stroke-width="2.4">
+    <rect x="1020" y="731" width="1345" height="58" rx="12" filter="url(#sketchy)"/>
+    <rect x="1020" y="794" width="1345" height="58" rx="12" filter="url(#sketchy)"/>
+    <rect x="1020" y="857" width="1345" height="58" rx="12" filter="url(#sketchy)"/>
+    <rect x="1020" y="920" width="1345" height="58" rx="12" filter="url(#sketchy)"/>
+  </g>
+  <line x1="990" y1="760" x2="1012" y2="760" stroke="#2d8a4e" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <line x1="990" y1="823" x2="1012" y2="823" stroke="#2d8a4e" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <line x1="990" y1="886" x2="1012" y2="886" stroke="#2d8a4e" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <line x1="990" y1="949" x2="1012" y2="949" stroke="#2d8a4e" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="1040" y="754" class="leaf-head" fill="#065f46">Shared transition, variable compute, learned halting</text>
+  <text x="1040" y="776" class="leaf-text">looped transformers, depth recurrence, stochastic stopping  •  Loop-Think-Generalize; Equilibrium Reasoners (2026)</text>
+  <text x="1040" y="817" class="leaf-head" fill="#065f46">Relative coordinates and task-aligned neighborhoods</text>
+  <text x="1040" y="839" class="leaf-text">RoPE frequency use, randomized positions, local recurrent computation  •  RFS; Locality; RoPE Frequency (2026)</text>
+  <text x="1040" y="880" class="leaf-head" fill="#065f46">Reusable subroutines and exact state</text>
+  <text x="1040" y="902" class="leaf-text">MoE and routing, causal graphs, theorem provers, automata recurrence  •  AGEL-Comp; Rational Transductors (2026)</text>
+  <text x="1040" y="943" class="leaf-head" fill="#065f46">Iterative hidden-state computation</text>
+  <text x="1040" y="965" class="leaf-text">recursive latent reasoning, energy minimization, attractors, stable dynamics  •  Think Shallow, Solve Deep (2026)</text>
+
+  <!-- Analysis branches -->
+  <g fill="#fffaf0" stroke="#d27a0a" stroke-width="3">
+    <rect x="652" y="1048" width="330" height="58" rx="10" filter="url(#sketchy)"/>
+    <rect x="652" y="1198" width="330" height="58" rx="10" filter="url(#sketchy)"/>
+  </g>
+  <text x="817" y="1073" text-anchor="middle" class="branch" fill="#92400e"><tspan x="817">4.1 Behavioral</tspan><tspan x="817" dy="22">observations</tspan></text>
+  <text x="817" y="1223" text-anchor="middle" class="branch" fill="#92400e"><tspan x="817">4.2 Mechanisms</tspan><tspan x="817" dy="22">&amp; explanations</tspan></text>
+  <line x1="628" y1="1077" x2="644" y2="1077" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="628" y1="1227" x2="644" y2="1227" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+
+  <!-- Analysis sub-branches -->
+  <g fill="#fffdf7" stroke="#e8ad52" stroke-width="2.6">
+    <rect x="1020" y="1004" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+    <rect x="1020" y="1058" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+    <rect x="1020" y="1112" width="330" height="44" rx="10" filter="url(#sketchy)"/>
+    <rect x="1020" y="1179" width="330" height="50" rx="10" filter="url(#sketchy)"/>
+    <rect x="1020" y="1241" width="330" height="50" rx="10" filter="url(#sketchy)"/>
+  </g>
+  <line x1="990" y1="1077" x2="1000" y2="1077" stroke="#d27a0a" stroke-width="3"/>
+  <line x1="1000" y1="1026" x2="1000" y2="1134" stroke="#d27a0a" stroke-width="3"/>
+  <line x1="1000" y1="1026" x2="1012" y2="1026" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="1000" y1="1080" x2="1012" y2="1080" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="1000" y1="1134" x2="1012" y2="1134" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="990" y1="1227" x2="1000" y2="1227" stroke="#d27a0a" stroke-width="3"/>
+  <line x1="1000" y1="1204" x2="1000" y2="1266" stroke="#d27a0a" stroke-width="3"/>
+  <line x1="1000" y1="1204" x2="1012" y2="1204" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="1000" y1="1266" x2="1012" y2="1266" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <text x="1185" y="1032" text-anchor="middle" class="leaf-head" fill="#92400e">Shift patterns</text>
+  <text x="1185" y="1086" text-anchor="middle" class="leaf-head" fill="#92400e">Scaling patterns</text>
+  <text x="1185" y="1140" text-anchor="middle" class="leaf-head" fill="#92400e">Validity controls</text>
+  <text x="1185" y="1199" text-anchor="middle" class="leaf-head" fill="#92400e"><tspan x="1185">4.2.1 Empirical</tspan><tspan x="1185" dy="20">mechanisms</tspan></text>
+  <text x="1185" y="1261" text-anchor="middle" class="leaf-head" fill="#92400e"><tspan x="1185">4.2.2 Theoretical</tspan><tspan x="1185" dy="20">analysis</tspan></text>
+
+  <!-- Analysis leaves -->
+  <g fill="#fffaf0" stroke="#efc982" stroke-width="2.3">
+    <rect x="1390" y="997" width="975" height="58" rx="12" filter="url(#sketchy)"/>
+    <rect x="1390" y="1051" width="975" height="58" rx="12" filter="url(#sketchy)"/>
+    <rect x="1390" y="1105" width="975" height="58" rx="12" filter="url(#sketchy)"/>
+    <rect x="1390" y="1173" width="975" height="62" rx="12" filter="url(#sketchy)"/>
+    <rect x="1390" y="1235" width="975" height="62" rx="12" filter="url(#sketchy)"/>
+  </g>
+  <line x1="1358" y1="1026" x2="1382" y2="1026" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="1358" y1="1080" x2="1382" y2="1080" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="1358" y1="1134" x2="1382" y2="1134" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="1358" y1="1204" x2="1382" y2="1204" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="1358" y1="1266" x2="1382" y2="1266" stroke="#d27a0a" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <text x="1410" y="1020" class="leaf-head" fill="#92400e">surface, composition, length/depth, difficulty, domain, language, modality</text>
+  <text x="1410" y="1042" class="leaf-text">examples: General365; XDomainBench; numeric remapping; OOD visual planning (2026)</text>
+  <text x="1410" y="1074" class="leaf-head" fill="#92400e">thresholds, grokking, easy-to-hard transfer, overthinking, compute-cost curves</text>
+  <text x="1410" y="1096" class="leaf-text">test whether more data, scale, or thinking expands the learned capability region</text>
+  <text x="1410" y="1128" class="leaf-head" fill="#92400e">contamination, sealed generators, fresh symbols, counterfactuals, matched compute</text>
+  <text x="1410" y="1150" class="leaf-text">separate recall, format adaptation, candidate coverage, selection, and genuine procedure transfer</text>
+  <text x="1410" y="1197" class="leaf-head" fill="#92400e">circuits, representation alignment, routing, learning dynamics, causal intervention</text>
+  <text x="1410" y="1219" class="leaf-text">Shared Circuits; Two-Hop Generalization; Self-Patching; RASP Decompilation; Grokking Signals (2026)</text>
+  <text x="1410" y="1259" class="leaf-head" fill="#92400e">expressivity vs. learnability; RASP/languages; equivariance; bounds; impossibility</text>
+  <text x="1410" y="1281" class="leaf-text">Algebraic Decomposition; CoT Length Guarantees; Relative Positions; Length Bounds (2025-2026)</text>
+
+  <text x="2380" y="1330" text-anchor="end" class="tiny">Evidence corpus: 124 core studies + 6 contextual sources • Updated 2026-09-08 • Source: survey.md</text>
+</svg>

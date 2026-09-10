@@ -1,0 +1,15 @@
+arxiv_id	title	exclusion_reason
+2608.27455	CritICL: Inference-Time Weak-to-Strong Generalization from Small Language Model Failure Modes	Transfers critiques across model scales but does not test an unfamiliar-problem distribution.
+2608.15303	Divergent-Convergent Reasoning: Scaling Test-Time Compute through Structured Solution Synthesis	Improves reasoning accuracy and compute efficiency without a named training-to-test shift.
+2608.09351	Test-Time Augmentation for LLMs: When Input Diversity Beats Output Diversity at Matched Compute	Broad test-time augmentation study in which reasoning is only one task family and no reasoning-transfer split is isolated.
+2608.03961	Interpretable Adaptive Sampling for LLM Test-Time Scaling	Studies per-query compute allocation on a standard test set without a distributional transfer claim.
+2607.18100	Can We Break LLMs Out of Self-Loops? Fine-Grained Reasoning Control with Activation Steering	Uses dataset-local state partitions and held-out traces but does not establish cross-task reasoning transfer.
+2604.25444	One Refiner to Unlock Them All: Inference-Time Reasoning Elicitation via Reinforcement Query Refinement	Transfers a query refiner to unseen solver models, not reasoning to unfamiliar problem distributions.
+2607.26775	Journey Operators for Structured Multi-Axis Composition	Generic positional and compositional framework whose experiments are single-seed vision and language sanity checks, not reasoning-generalization tests.
+2607.17624	Can Transformers Really Do It All? On the Compatibility of Inductive Biases Across Tasks	General architecture-search and task-compatibility study; robust reasoning is only a proposed implication.
+2505.05704	Assessing Robustness to Spurious Correlations in Post-Training Language Models	Broad post-training robustness study in which mathematical reasoning is only one of several task types.
+2602.01017	How Does Unfaithful Reasoning Emerge from Autoregressive Training? A Study of Synthetic Experiments	Studies trace faithfulness under label noise without a generalization split.
+2402.12875	Chain of Thought Empowers Transformers to Solve Inherently Serial Problems	Establishes CoT expressivity but not transfer, learnability, or extrapolation under a named shift.
+2305.10601	Tree of Thoughts: Deliberate Problem Solving with Large Language Models	Shows search-time reasoning gains on several tasks without a training-to-test generalization design.
+2203.11171	Self-Consistency Improves Chain of Thought Reasoning in Language Models	Shows decoding gains on standard reasoning benchmarks without a named transfer shift.
+2201.11903	Chain-of-Thought Prompting Elicits Reasoning in Large Language Models	Establishes a prompting method and benchmark gains but does not test reasoning generalization under a specified shift.

@@ -1,0 +1,131 @@
+arxiv_id	pillar	branch	inclusion_note
+2608.27142	training	post-training/RL and invariance	Structure-invariance rewards under name and narrative shifts
+2608.20054	training	data and modular supervision	Evidence masking changes which compositional solution is learned
+2608.06347	training	post-training/distillation	Reasoning-pivot supervision for multilingual transfer
+2607.23771	training	post-training/controller-aware	Generalization to unseen inference-controller compositions
+2607.07748	training	mid-training and verified synthesis	Moves test-time search into verified low-resource code data
+2607.06855	training	post-training/distillation	Geometric regularization limits OOD drift in self-distillation
+2606.23687	training	mid-training/position curriculum	Randomized positional exposure for long-context reasoning
+2606.12373	training	post-training/RL environments	Recursive composition of verifiable environments
+2605.26924	training	post-training/SFT data adaptation	Adapts expert traces to the target model distribution
+2605.09270	training	post-training/SFT target design	Supervises theorem application rather than surface answers
+2605.08061	training	post-training/structured rewards	Rubric-decomposed rewards transfer beyond the source corpus
+2604.17696	training	post-training/hybrid and self-improvement	Trajectory rewards select domain-general game reasoning
+2604.09258	contextual-background	pre-training optimization	Background optimizer study without an isolated reasoning transfer boundary
+2604.08926	training	post-training/SFT plus RL	Dynamic balance between stable imitation and exploration
+2603.27226	training	curriculum learning	Negative result on easy-to-hard ordering for deduction
+2603.02091	training	synthetic data	Rule-generated fictional knowledge teaches multi-hop composition
+2602.08658	training	reasoning-skill mixtures	Deduction, induction, and abduction transfer to natural tasks
+2602.06475	training	post-training/causal rewards	Counterfactual robustness as a process reward
+2601.04992	training	post-training/negative traces	Incorrect chains reduce overfitting and increase exploration
+2601.03676	training	post-training/hybrid and self-improvement	Skill-taxonomy-guided compositional data generation
+2608.16647	training	post-training/on-policy distillation	Controlled cross-domain and cross-origin distillation transfer
+2608.14791	training	post-training/process-aware RL	Abductive process rewards transfer to eleven unseen tasks
+2606.25178	training	post-training/multi-domain curriculum	Gradient alignment estimates cross-domain RLVR transferability
+2606.09932	training	post-training/SFT-to-RL handoff	Restores plasticity after excessive SFT and improves OOD transfer
+2606.05025	training	post-training/invariant distillation	Aligns gradients across logically isomorphic semantic domains
+2604.08477	training	post-training/RL data curation	Natural-instruction RLVR transfers to unseen reasoning benchmarks
+2604.03993	training	post-training/noisy rewards	Online label refinement improves ID and OOD reasoning under noise
+2602.02405	training	post-training/self-distillation	Aligns expert solutions to the student distribution
+2601.21909	training	post-training/SFT plus RL	Separates abstract strategies from instance-specific execution
+2602.10815	training	post-training/SFT versus RL	Data difficulty explains part of the VLM OOD generalization gap
+2602.02518	training	post-training/curriculum	Graph curriculum transfers exploration and reasoning to unseen domains
+2505.03981	training	post-training/cross-modal transfer	Text-only post-training transfers across modalities and domains
+2506.09433	training	post-training/causal debiasing	Causal decomposition improves OOD formal and logical reasoning
+2502.11525	training	post-training/length transfer	Rule-following supervision transfers length generalization across tasks
+2608.05254	inference	prompt decomposition	Extract constraints before solving
+2607.21453	inference	error-localized search	Reuse valid prefixes after feedback-localized errors
+2607.17188	inference	monitoring and control	Uncertainty-progress signals choose continue, switch, or stop
+2607.06974	inference	memory	Reusable modular instruction memory at test time
+2605.16410	inference	hint routing	Black-box hints transfer across benchmarks and VLMs
+2605.09853	training	post-training/exploration	Preserves policy diversity needed by inference-time sampling
+2604.01430	inference	test-time thinking	RL-trained thinking transfers latent deduction to new facts
+2608.31067	architecture	recurrence and halting	Circuit reduction with learned shallow-to-unbounded length transfer
+2608.18222	architecture	recurrent dynamics	Settling regimes predict safe extra test-time depth
+2608.18171	architecture	recurrent tool use	Looped models improve multi-step compositional tool calling
+2607.18759	analysis	theory	Implicit bias explains relative-position length transfer
+2607.07678	architecture	positional structure	Training data determines RoPE frequency use and extrapolation
+2606.29983	architecture	recurrence and halting	Stochastic stopping stabilizes loop-count extrapolation
+2605.21488	architecture	equilibrium computation	Learned attractors support scalable iterative reasoning
+2604.26522	architecture	neuro-symbolic modularity	Causal graphs, logic induction, and theorem verification
+2604.25800	architecture	structured scratchpads	Formal barriers and signpost encodings for universal reasoning
+2604.07822	architecture	recurrent depth	Systematic and depth generalization with shared computation
+2603.29069	contextual-comparison	non-LLM computational representation	Neural cellular automaton comparison for representation-induced locality
+2603.21676	architecture	recurrent depth	Stable latent iteration reveals task-specific frontiers
+2603.19954	analysis	theory	C*-RASP links planning structure to learnable verification
+2602.14050	architecture	positional structure	Random float positions reduce unseen-index shift
+2603.02238	analysis	theory	Computability and limits of length-generalization bounds
+2602.07599	architecture	hybrid recurrence	Weighted-automata state augments attention for regular languages
+2609.04463	analysis	empirical mechanisms	Circuit overlap predicts cross-format arithmetic transfer
+2608.07261	analysis	empirical mechanisms	Layer mismatch explains asymmetric two-hop generalization
+2608.05660	inference	verification and error detection	Cross-benchmark detector transfer; not generator generalization
+2608.04980	analysis	behavior and controlled mechanisms	Tiny-model traces close a Dyck OOD gap
+2607.12733	analysis	behavioral observations	Abductive detection-attribution gap under interacting mutations
+2607.08393	analysis	empirical mechanisms	Self-patching studies the knowing-using gap
+2606.03606	analysis	behavioral observations	Schema-preserving numeric remapping exposes brittleness
+2605.16052	analysis	contamination and hybrid controls	Separates legal translation from compositional reasoning
+2605.14754	analysis	behavioral observations	Reasoning collapse as scientific composition order rises
+2605.07120	analysis	theory	Fresh-symbol margin transfer under token collisions
+2605.04396	analysis	empirical mechanisms	Critical training windows choose reasoning or memorization
+2604.15306	analysis	behavioral observations	Separates spatial transfer from recursive length failure
+2604.11778	analysis	behavioral observations	Domain-general benchmark with controlled variants
+2603.09678	analysis	contamination-resistant evaluation	Unseen esoteric languages test algorithm transfer
+2602.16967	analysis	empirical mechanisms	Causal loss-geometry signal precedes grokking
+2602.15460	analysis	behavioral observations	Controlled visual planning across map size and format
+2602.08857	analysis	empirical mechanisms	Causal decompilation extracts compact RASP programs
+2601.18858	analysis	empirical mechanisms	Hidden-state homomorphism predicts and improves composition
+2601.17869	analysis	behavioral observations	Structural learning does not ensure test-time composition
+2601.16823	analysis	behavioral observations	Chess separates performance with dense and sparse priors
+2601.13392	analysis	behavioral observations	Unseen automata tasks separate recall from global consistency
+2601.09049	analysis	empirical mechanisms	Tests transferability claims of grokked generalization circuits
+2607.07646	analysis	empirical mechanisms	Controlled evidence that RL composes primitive rewrite procedures
+2606.27721	analysis	theoretical analysis	Curricula reduce supervision and reference-coverage requirements
+2606.18089	analysis	mechanisms and explanations	Latent-module account of complementary SFT and RL roles
+2606.16517	analysis	behavioral observations	Controlled CPT-SFT-RL study across biological ID and OOD tasks
+2605.29190	analysis	empirical mechanisms	Reasoning primitives explain puzzle-to-math transfer and suppression
+2604.06628	analysis	behavioral observations	SFT transfer depends on optimization data and model capability
+2603.24472	analysis	empirical mechanisms	Epistemic verbalization predicts self-distillation OOD failures
+2602.01365	analysis	behavioral observations	Cross-domain GRPO transfer is asymmetric and order-sensitive
+2601.18217	analysis	behavioral observations	Environment properties predict cross-domain transfer in RL-trained agents
+2512.20760	analysis	behavioral observations	RLVR generalization across causal query level and graph complexity
+2512.01775	analysis	empirical mechanisms	Expression-tree analysis isolates compositional RL transfer
+2512.07783	analysis	behavioral observations	Controlled pre-training mid-training and RL capability boundary
+2509.21016	analysis	behavioral observations	Controlled algorithm acquisition and four transfer axes
+2509.12235	analysis	empirical mechanisms	Singular-vector rotation tracks SFT forgetting and RL recovery
+2507.00432	analysis	empirical mechanisms	Representation drift explains math-to-general transfer differences
+2506.19733	analysis	behavioral observations	Observational and interventional audit of unseen-domain RL transfer
+2505.22756	analysis	empirical mechanisms	Separates planning execution and verification gains under RL
+2504.20571	analysis	behavioral observations	One-shot RLVR shows cross-category and post-saturation transfer
+2504.13837	analysis	behavioral observations	Large-pass-k controls test whether RL expands model support
+2501.17161	analysis	behavioral observations	Controlled comparison of SFT and RL on unseen text and visual variants
+2511.21692	analysis	behavioral observations	Cross-difficulty transfer is limited and non-monotonic
+2511.07378	analysis	theory	Optimization guarantee for CoT length generalization
+2510.20607	architecture	energy-based composition	Iterative compositional energy minimization
+2510.14826	inference	tool use	Tools unlock length generalization in state-space models
+2510.14095	architecture	recurrent latent reasoning	Recursive latent computation for OOD transfer
+2509.25140	inference	memory	Reasoning memory supports agent self-improvement
+2508.01191	analysis	behavioral observations	Data-distribution account of apparent CoT reasoning
+2507.17512	training	post-training/multi-domain RL	Measures cross-domain help and interference
+2506.18880	analysis	behavioral observations	Exploratory, compositional, and transformative math transfer
+2506.09251	analysis	behavioral observations	Transfer of length extrapolation across related tasks
+2502.20129	analysis	empirical mechanisms	Finite-state circuits inside CoT transformers
+2501.08537	training	regularization	Complexity control selects reasoning over memorization
+2409.15647	architecture	recurrent depth	Foundational looped-transformer length generalization
+2406.06467	analysis	theory	Globality barrier and inductive scratchpads
+2405.15071	analysis	empirical mechanisms	Grokking without systematic transfer on unseen facts
+2310.16028	analysis	theory	RASP-Generalization conjecture for algorithmic tasks
+2305.18741	analysis	behavioral observations	Structural grokking after prolonged training
+2207.04901	analysis	behavioral observations	Foundational empirical study of length extrapolation
+2205.10625	inference	prompt decomposition	Least-to-most decomposition on harder instances
+1807.03819	architecture	recurrent depth	Universal Transformer as adaptive recurrent computation
+2510.10182	related-survey	inductive reasoning	Neighboring survey limited to induction
+2509.16330	related-survey	agent generalizability	Neighboring survey limited to agent systems
+2608.13433	analysis	theoretical analysis	Algebraic characterization of transformer length generalization
+2607.09061	architecture	locality and recurrence	Local recurrent perception for visual length generalization
+2605.19944	analysis	theoretical analysis	Measure-theoretic bounds for structural OOD reasoning
+2510.15990	training	post-training/RL	Tests whether GRPO exceeds the pretraining capability boundary
+2502.08482	architecture	recurrent depth	Loop-aligned reasoning transfers length-general traces
+2210.03050	related-survey	NLP generalization	Foundational taxonomy of distribution shifts in NLP
+2108.13624	related-survey	OOD generalization	Foundational survey of out-of-distribution generalization
+1711.00350	analysis	behavioral observations	Foundational SCAN study of systematic compositional generalization
+2511.00066	training	post-training/RL	Sharpness-guided GRPO with cross-benchmark and out-domain evaluation

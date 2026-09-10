@@ -1,0 +1,379 @@
+#!/usr/bin/env python3
+"""Build the Awesome-style README from the audited paper manifest."""
+
+from __future__ import annotations
+
+import csv
+from collections import OrderedDict
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+MANIFEST = ROOT / "paper_manifest.tsv"
+OUTPUT = ROOT / "README.md"
+
+
+PILLAR_QUESTIONS = [
+    (
+        "Training for Generalization",
+        "How can learning produce reasoning skills that transfer to unfamiliar problems?",
+    ),
+    (
+        "Inference for Generalization",
+        "How can a fixed model solve unfamiliar problems through changes at inference?",
+    ),
+    (
+        "Architecture for Generalization",
+        "Which structural properties support transferable reasoning?",
+    ),
+    (
+        "Analysis of Generalization",
+        "When does reasoning generalize, and what explains its successes and failures?",
+    ),
+]
+
+
+PAPER_SECTIONS = OrderedDict(
+    [
+        (
+            "Training for Generalization",
+            [
+                "Pre-training and mid-training",
+                "Post-training: supervised adaptation",
+                "Post-training: RL and reward design",
+                "Post-training: hybrid and self-improvement",
+            ],
+        ),
+        (
+            "Inference for Generalization",
+            [
+                "Prompt elicitation and decomposition",
+                "Sampling and search",
+                "Verification, repair, and stopping",
+                "Tools and memory",
+            ],
+        ),
+        (
+            "Architecture for Generalization",
+            [
+                "Recurrent depth and adaptive computation",
+                "Position, attention, and locality",
+                "Modules, symbols, and structured state",
+                "Latent recurrence and equilibrium computation",
+            ],
+        ),
+        (
+            "Analysis of Generalization",
+            [
+                "Behavioral observations",
+                "Empirical mechanisms and explanations",
+                "Theoretical analysis",
+            ],
+        ),
+    ]
+)
+
+
+MID_TRAINING_BRANCHES = {
+    "curriculum learning",
+    "data and modular supervision",
+    "mid-training and verified synthesis",
+    "mid-training/position curriculum",
+    "post-training/length transfer",
+    "reasoning-skill mixtures",
+    "regularization",
+    "synthetic data",
+}
+
+SUPERVISED_BRANCHES = {
+    "post-training/SFT data adaptation",
+    "post-training/SFT target design",
+    "post-training/causal debiasing",
+    "post-training/distillation",
+    "post-training/invariant distillation",
+    "post-training/negative traces",
+    "post-training/on-policy distillation",
+    "post-training/self-distillation",
+}
+
+HYBRID_BRANCHES = {
+    "post-training/SFT plus RL",
+    "post-training/SFT versus RL",
+    "post-training/SFT-to-RL handoff",
+    "post-training/controller-aware",
+    "post-training/hybrid and self-improvement",
+}
+
+
+def clean(text: str) -> str:
+    """Keep generated Markdown plain and compatible with repository style rules."""
+    return text.replace(chr(0x2014), ":").replace(chr(0x2013), "-").strip()
+
+
+def classify(row: dict[str, str]) -> tuple[str, str] | None:
+    pillar = row["pillar"]
+    branch = row["branch"]
+
+    if pillar == "training":
+        if branch in MID_TRAINING_BRANCHES:
+            return "Training for Generalization", "Pre-training and mid-training"
+        if branch in SUPERVISED_BRANCHES:
+            return "Training for Generalization", "Post-training: supervised adaptation"
+        if branch in HYBRID_BRANCHES:
+            return "Training for Generalization", "Post-training: hybrid and self-improvement"
+        return "Training for Generalization", "Post-training: RL and reward design"
+
+    if pillar == "inference":
+        mapping = {
+            "prompt decomposition": "Prompt elicitation and decomposition",
+            "hint routing": "Prompt elicitation and decomposition",
+            "error-localized search": "Sampling and search",
+            "test-time thinking": "Sampling and search",
+            "monitoring and control": "Verification, repair, and stopping",
+            "verification and error detection": "Verification, repair, and stopping",
+            "memory": "Tools and memory",
+            "tool use": "Tools and memory",
+        }
+        return "Inference for Generalization", mapping[branch]
+
+    if pillar == "architecture":
+        if branch in {"recurrent depth", "recurrence and halting", "recurrent dynamics"}:
+            subsection = "Recurrent depth and adaptive computation"
+        elif branch in {"positional structure", "locality and recurrence"}:
+            subsection = "Position, attention, and locality"
+        elif branch in {
+            "neuro-symbolic modularity",
+            "structured scratchpads",
+            "hybrid recurrence",
+            "recurrent tool use",
+        }:
+            subsection = "Modules, symbols, and structured state"
+        else:
+            subsection = "Latent recurrence and equilibrium computation"
+        return "Architecture for Generalization", subsection
+
+    if pillar == "analysis":
+        if branch in {
+            "behavioral observations",
+            "contamination and hybrid controls",
+            "contamination-resistant evaluation",
+        }:
+            subsection = "Behavioral observations"
+        elif branch in {
+            "behavior and controlled mechanisms",
+            "empirical mechanisms",
+            "mechanisms and explanations",
+        }:
+            subsection = "Empirical mechanisms and explanations"
+        else:
+            subsection = "Theoretical analysis"
+        return "Analysis of Generalization", subsection
+
+    return None
+
+
+def anchor(text: str) -> str:
+    return clean(text).lower().replace(":", "").replace(",", "").replace(" ", "-")
+
+
+def paper_item(row: dict[str, str]) -> str:
+    title = clean(row["title"])
+    authors = clean(row["authors"].replace(";", ","))
+    date = row["published"][:7]
+    return (
+        f"- **{title}**. *{authors}*. "
+        f"[[paper]({row['source_url']})] [[pdf]({row['pdf_url']})], {date}."
+    )
+
+
+def load_rows() -> list[dict[str, str]]:
+    with MANIFEST.open(encoding="utf-8", newline="") as stream:
+        return list(csv.DictReader(stream, delimiter="\t"))
+
+
+def build() -> str:
+    rows = load_rows()
+    core = [row for row in rows if row["pillar"] in {"training", "inference", "architecture", "analysis"}]
+    related = [row for row in rows if row["pillar"] == "related-survey"]
+    context = [row for row in rows if row["pillar"].startswith("contextual-")]
+    year_2026 = sum(row["published"].startswith("2026") for row in core)
+
+    grouped = {
+        pillar: {subsection: [] for subsection in subsections}
+        for pillar, subsections in PAPER_SECTIONS.items()
+    }
+    for row in core:
+        location = classify(row)
+        if location is None:
+            raise ValueError(f"Unclassified core paper: {row['arxiv_id']}")
+        pillar, subsection = location
+        grouped[pillar][subsection].append(row)
+
+    for subsections in grouped.values():
+        for papers in subsections.values():
+            papers.sort(key=lambda row: (row["published"], row["arxiv_id"]), reverse=True)
+
+    lines = [
+        '<div align="center">',
+        "",
+        "# Awesome Reasoning Generalization",
+        "",
+        "### Beyond the Training Distribution: A Survey of Reasoning Generalization in Large Language Models",
+        "",
+        "[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)",
+        f"![Core papers](https://img.shields.io/badge/core%20papers-{len(core)}-6f42c1)",
+        f"![2026 papers](https://img.shields.io/badge/2026%20papers-{year_2026}-1f77b4)",
+        "[![GitHub last commit](https://img.shields.io/github/last-commit/tue09/awesome-reasoning-generalization?logo=github&color=blue)](https://github.com/tue09/awesome-reasoning-generalization/commits/main)",
+        "[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#contributing)",
+        "",
+        "A curated, evidence-audited reading list on whether reasoning procedures transfer across stated distribution shifts.",
+        "",
+        "[Survey](survey.md) | [Taxonomy SVG](main_taxonomy.svg) | [Taxonomy PDF](main_taxonomy.pdf) | [Paper manifest](paper_manifest.tsv)",
+        "",
+        "</div>",
+        "",
+        "> **Status:** The literature search was updated on 8 September 2026. The corpus contains 124 core studies, including 86 first posted in 2026, plus four nearby surveys and two contextual sources.",
+        "",
+        "## Contents",
+        "",
+        "- [Scope](#scope)",
+        "- [Taxonomy](#taxonomy)",
+        "- [Paper list](#paper-list)",
+    ]
+
+    for pillar, subsections in PAPER_SECTIONS.items():
+        lines.append(f"  - [{pillar}](#{anchor(pillar)})")
+        for subsection in subsections:
+            lines.append(f"    - [{subsection}](#{anchor(subsection)})")
+
+    lines.extend(
+        [
+            "  - [Related surveys](#related-surveys)",
+            "  - [Contextual sources](#contextual-sources)",
+            "- [Repository guide](#repository-guide)",
+            "- [Contributing](#contributing)",
+            "- [Citation](#citation)",
+            "",
+            "## Scope",
+            "",
+            "This repository studies **reasoning generalization**, not reasoning accuracy alone. A core paper must identify all four of the following:",
+            "",
+            "1. A reasoning task.",
+            "2. A reference training exposure or capability boundary.",
+            "3. A stated test shift, such as a new composition, length, domain, language, modality, format, tool, or difficulty regime.",
+            "4. Evidence that a reasoning procedure transfers or fails under that shift.",
+            "",
+            "We exclude papers that report only an average benchmark gain, broad robustness work where reasoning is incidental, model-to-model transfer without an unfamiliar-problem shift, and theory with no generalization claim. See the [survey](survey.md#23-evidence-standard) for the full evidence standard and [excluded_papers.tsv](excluded_papers.tsv) for audit decisions.",
+            "",
+            "## Taxonomy",
+            "",
+            "| Pillar | Central question |",
+            "| --- | --- |",
+        ]
+    )
+
+    for pillar, question in PILLAR_QUESTIONS:
+        lines.append(f"| **{pillar}** | {question} |")
+
+    lines.extend(
+        [
+            "",
+            '<p align="center">',
+            '  <a href="main_taxonomy.pdf"><img src="main_taxonomy.svg" width="100%" alt="Taxonomy of reasoning generalization in large language models"></a>',
+            "</p>",
+            "",
+            "The first three pillars concern interventions. The fourth separates behavioral observations from empirical mechanisms and theoretical results. Each paper receives one primary manifest label, even when it informs several sections.",
+            "",
+            "## Paper list",
+            "",
+            "Papers are ordered by first publication date within each subsection, newest first. The list is generated from [paper_manifest.tsv](paper_manifest.tsv).",
+            "",
+        ]
+    )
+
+    for pillar, subsections in PAPER_SECTIONS.items():
+        pillar_count = sum(len(grouped[pillar][subsection]) for subsection in subsections)
+        lines.extend([f"### {pillar} ({pillar_count})", ""])
+        for subsection in subsections:
+            papers = grouped[pillar][subsection]
+            lines.extend([f"#### {subsection} ({len(papers)})", ""])
+            lines.extend(paper_item(row) for row in papers)
+            lines.append("")
+
+    related.sort(key=lambda row: (row["published"], row["arxiv_id"]), reverse=True)
+    context.sort(key=lambda row: (row["published"], row["arxiv_id"]), reverse=True)
+    lines.extend([f"### Related surveys ({len(related)})", ""])
+    lines.extend(paper_item(row) for row in related)
+    lines.extend(["", f"### Contextual sources ({len(context)})", ""])
+    lines.extend(paper_item(row) for row in context)
+
+    lines.extend(
+        [
+            "",
+            "## Repository guide",
+            "",
+            "| Path | Purpose |",
+            "| --- | --- |",
+            "| [`survey.md`](survey.md) | Main survey draft and source of truth for the taxonomy |",
+            "| [`main_taxonomy.svg`](main_taxonomy.svg) | Editable taxonomy figure |",
+            "| [`main_taxonomy.pdf`](main_taxonomy.pdf) | Publication-ready taxonomy export |",
+            "| [`paper_manifest.tsv`](paper_manifest.tsv) | Audited metadata, taxonomy labels, abstracts, links, and local-path fields |",
+            "| [`selection.tsv`](selection.tsv) | Compact list of included papers and inclusion reasons |",
+            "| [`excluded_papers.tsv`](excluded_papers.tsv) | Papers rejected during scope audit, with reasons |",
+            "| [`candidates.tsv`](candidates.tsv) | Deduplicated search candidates used during screening |",
+            "| [`scripts/`](scripts) | Corpus parsing, merging, manifest construction, verification, and README generation |",
+            "",
+            "Local PDF archives are intentionally excluded from Git. Use each paper's `pdf_url` in the manifest or the links above.",
+            "",
+            "To verify a downloaded corpus:",
+            "",
+            "```bash",
+            "python3 scripts/verify_corpus.py paper_manifest.tsv",
+            "```",
+            "",
+            "To regenerate this README after changing the manifest:",
+            "",
+            "```bash",
+            "python3 scripts/build_readme.py",
+            "```",
+            "",
+            "## Contributing",
+            "",
+            "Contributions are welcome. Please open an issue or pull request and provide:",
+            "",
+            "- the paper title and stable source URL;",
+            "- the reasoning task;",
+            "- the reference training exposure;",
+            "- the test-time distribution shift;",
+            "- the evidence for transfer or failure;",
+            "- the proposed primary taxonomy branch.",
+            "",
+            "A paper is not included only because it mentions generalization or improves a reasoning benchmark. The evaluation must cross a named boundary. Please preserve the TSV schemas and run the corpus checks before submitting a pull request.",
+            "",
+            "## Citation",
+            "",
+            "The paper citation will be added when the survey is released. To cite the living repository in the meantime:",
+            "",
+            "```bibtex",
+            "@misc{awesome_reasoning_generalization_2026,",
+            "  title        = {Awesome Reasoning Generalization},",
+            "  author       = {{Awesome Reasoning Generalization Contributors}},",
+            "  year         = {2026},",
+            "  howpublished = {\\url{https://github.com/tue09/awesome-reasoning-generalization}},",
+            "  note         = {Accessed: YYYY-MM-DD}",
+            "}",
+            "```",
+            "",
+            "## Acknowledgments",
+            "",
+            "The README organization was informed by [Awesome Efficient Reasoning](https://github.com/hemingkx/Awesome-Efficient-Reasoning). All papers remain the work of their respective authors. Please open an issue for missing work, incorrect metadata, or taxonomy disagreements.",
+            "",
+        ]
+    )
+
+    return "\n".join(lines)
+
+
+if __name__ == "__main__":
+    OUTPUT.write_text(build(), encoding="utf-8")
+    print(f"Wrote {OUTPUT}")
