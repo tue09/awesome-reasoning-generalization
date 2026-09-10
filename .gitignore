@@ -8,5 +8,11 @@ __pycache__/
 *.py[cod]
 .DS_Store
 
+# Virtual environments
+.venv/
+venv/
+env/
+
 # Local render outputs.
 build/
+
