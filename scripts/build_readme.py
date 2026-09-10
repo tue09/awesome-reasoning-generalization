@@ -194,8 +194,6 @@ def load_rows() -> list[dict[str, str]]:
 def build() -> str:
     rows = load_rows()
     core = [row for row in rows if row["pillar"] in {"training", "inference", "architecture", "analysis"}]
-    related = [row for row in rows if row["pillar"] == "related-survey"]
-    context = [row for row in rows if row["pillar"].startswith("contextual-")]
     year_2026 = sum(row["published"].startswith("2026") for row in core)
 
     grouped = {
@@ -224,7 +222,6 @@ def build() -> str:
         f"![Core papers](https://img.shields.io/badge/core%20papers-{len(core)}-6f42c1)",
         f"![2026 papers](https://img.shields.io/badge/2026%20papers-{year_2026}-1f77b4)",
         "[![GitHub last commit](https://img.shields.io/github/last-commit/tue09/awesome-reasoning-generalization?logo=github&color=blue)](https://github.com/tue09/awesome-reasoning-generalization/commits/main)",
-        "[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#contributing)",
         "",
         "A curated, evidence-audited reading list on whether reasoning procedures transfer across stated distribution shifts.",
         "",
@@ -232,7 +229,7 @@ def build() -> str:
         "",
         "</div>",
         "",
-        "> **Status:** The literature search was updated on 8 September 2026. The corpus contains 124 core studies, including 86 first posted in 2026, plus four nearby surveys and two contextual sources.",
+        "> **Status:** The literature search was updated on 8 September 2026. The corpus contains 124 core studies, including 86 first posted in 2026.",
         "",
         "## Contents",
         "",
@@ -248,10 +245,6 @@ def build() -> str:
 
     lines.extend(
         [
-            "  - [Related surveys](#related-surveys)",
-            "  - [Contextual sources](#contextual-sources)",
-            "- [Repository guide](#repository-guide)",
-            "- [Contributing](#contributing)",
             "- [Citation](#citation)",
             "",
             "## Scope",
@@ -300,55 +293,8 @@ def build() -> str:
             lines.extend(paper_item(row) for row in papers)
             lines.append("")
 
-    related.sort(key=lambda row: (row["published"], row["arxiv_id"]), reverse=True)
-    context.sort(key=lambda row: (row["published"], row["arxiv_id"]), reverse=True)
-    lines.extend([f"### Related surveys ({len(related)})", ""])
-    lines.extend(paper_item(row) for row in related)
-    lines.extend(["", f"### Contextual sources ({len(context)})", ""])
-    lines.extend(paper_item(row) for row in context)
-
     lines.extend(
         [
-            "",
-            "## Repository guide",
-            "",
-            "| Path | Purpose |",
-            "| --- | --- |",
-            "| [`survey.md`](survey.md) | Main survey draft and source of truth for the taxonomy |",
-            "| [`main_taxonomy.svg`](main_taxonomy.svg) | Editable taxonomy figure |",
-            "| [`main_taxonomy.pdf`](main_taxonomy.pdf) | Publication-ready taxonomy export |",
-            "| [`paper_manifest.tsv`](paper_manifest.tsv) | Audited metadata, taxonomy labels, abstracts, links, and local-path fields |",
-            "| [`selection.tsv`](selection.tsv) | Compact list of included papers and inclusion reasons |",
-            "| [`excluded_papers.tsv`](excluded_papers.tsv) | Papers rejected during scope audit, with reasons |",
-            "| [`candidates.tsv`](candidates.tsv) | Deduplicated search candidates used during screening |",
-            "| [`scripts/`](scripts) | Corpus parsing, merging, manifest construction, verification, and README generation |",
-            "",
-            "Local PDF archives are intentionally excluded from Git. Use each paper's `pdf_url` in the manifest or the links above.",
-            "",
-            "To verify a downloaded corpus:",
-            "",
-            "```bash",
-            "python3 scripts/verify_corpus.py paper_manifest.tsv",
-            "```",
-            "",
-            "To regenerate this README after changing the manifest:",
-            "",
-            "```bash",
-            "python3 scripts/build_readme.py",
-            "```",
-            "",
-            "## Contributing",
-            "",
-            "Contributions are welcome. Please open an issue or pull request and provide:",
-            "",
-            "- the paper title and stable source URL;",
-            "- the reasoning task;",
-            "- the reference training exposure;",
-            "- the test-time distribution shift;",
-            "- the evidence for transfer or failure;",
-            "- the proposed primary taxonomy branch.",
-            "",
-            "A paper is not included only because it mentions generalization or improves a reasoning benchmark. The evaluation must cross a named boundary. Please preserve the TSV schemas and run the corpus checks before submitting a pull request.",
             "",
             "## Citation",
             "",
@@ -363,10 +309,6 @@ def build() -> str:
             "  note         = {Accessed: YYYY-MM-DD}",
             "}",
             "```",
-            "",
-            "## Acknowledgments",
-            "",
-            "The README organization was informed by [Awesome Efficient Reasoning](https://github.com/hemingkx/Awesome-Efficient-Reasoning). All papers remain the work of their respective authors. Please open an issue for missing work, incorrect metadata, or taxonomy disagreements.",
             "",
         ]
     )

@@ -8,7 +8,6 @@
 ![Core papers](https://img.shields.io/badge/core%20papers-124-6f42c1)
 ![2026 papers](https://img.shields.io/badge/2026%20papers-86-1f77b4)
 [![GitHub last commit](https://img.shields.io/github/last-commit/tue09/awesome-reasoning-generalization?logo=github&color=blue)](https://github.com/tue09/awesome-reasoning-generalization/commits/main)
-[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](#contributing)
 
 A curated, evidence-audited reading list on whether reasoning procedures transfer across stated distribution shifts.
 
@@ -16,7 +15,7 @@ A curated, evidence-audited reading list on whether reasoning procedures transfe
 
 </div>
 
-> **Status:** The literature search was updated on 8 September 2026. The corpus contains 124 core studies, including 86 first posted in 2026, plus four nearby surveys and two contextual sources.
+> **Status:** The literature search was updated on 8 September 2026. The corpus contains 124 core studies, including 86 first posted in 2026.
 
 ## Contents
 
@@ -42,10 +41,6 @@ A curated, evidence-audited reading list on whether reasoning procedures transfe
     - [Behavioral observations](#behavioral-observations)
     - [Empirical mechanisms and explanations](#empirical-mechanisms-and-explanations)
     - [Theoretical analysis](#theoretical-analysis)
-  - [Related surveys](#related-surveys)
-  - [Contextual sources](#contextual-sources)
-- [Repository guide](#repository-guide)
-- [Contributing](#contributing)
 - [Citation](#citation)
 
 ## Scope
@@ -255,57 +250,6 @@ Papers are ordered by first publication date within each subsection, newest firs
 - **How Far Can Transformers Reason? The Globality Barrier and Inductive Scratchpad**. *Emmanuel Abbe, Samy Bengio, Aryo Lotfi, Colin Sandon, Omid Saremi*. [[paper](https://arxiv.org/abs/2406.06467)] [[pdf](https://arxiv.org/pdf/2406.06467)], 2024-06.
 - **What Algorithms can Transformers Learn? A Study in Length Generalization**. *Hattie Zhou, Arwen Bradley, Etai Littwin, Noam Razin, Omid Saremi, Josh Susskind, Samy Bengio, Preetum Nakkiran*. [[paper](https://arxiv.org/abs/2310.16028)] [[pdf](https://arxiv.org/pdf/2310.16028)], 2023-10.
 
-### Related surveys (4)
-
-- **A Survey of Inductive Reasoning for Large Language Models**. *Kedi Chen, Dezhao Ruan, Yuhao Dan, Yaoting Wang, Siyu Yan, Xuecheng Wu, Yinqi Zhang, Qin Chen, Jie Zhou, Liang He, Biqing Qi, Linyang Li, Qipeng Guo, Xiaoming Shi, Wei Zhang*. [[paper](https://arxiv.org/abs/2510.10182)] [[pdf](https://arxiv.org/pdf/2510.10182)], 2025-10.
-- **Generalizability of Large Language Model-Based Agents: A Comprehensive Survey**. *Minxing Zhang, Yi Yang, Roy Xie, Bhuwan Dhingra, Shuyan Zhou, Jian Pei*. [[paper](https://arxiv.org/abs/2509.16330)] [[pdf](https://arxiv.org/pdf/2509.16330)], 2025-09.
-- **State-of-the-art generalisation research in NLP: A taxonomy and review**. *Dieuwke Hupkes, Mario Giulianelli, Verna Dankers, Mikel Artetxe, Yanai Elazar, Tiago Pimentel, Christos Christodoulopoulos, Karim Lasri, Naomi Saphra, Arabella Sinclair, Dennis Ulmer, Florian Schottmann, Khuyagbaatar Batsuren, Kaiser Sun, Koustuv Sinha, Leila Khalatbari, Maria Ryskina, Rita Frieske, Ryan Cotterell, Zhijing Jin*. [[paper](https://arxiv.org/abs/2210.03050)] [[pdf](https://arxiv.org/pdf/2210.03050)], 2022-10.
-- **Towards Out-Of-Distribution Generalization: A Survey**. *Jiashuo Liu, Zheyan Shen, Yue He, Xingxuan Zhang, Renzhe Xu, Han Yu, Peng Cui*. [[paper](https://arxiv.org/abs/2108.13624)] [[pdf](https://arxiv.org/pdf/2108.13624)], 2021-08.
-
-### Contextual sources (2)
-
-- **Nexus: Same Pretraining Loss, Better Downstream Generalization via Common Minima**. *Huanran Chen, Huaqing Zhang, Xiao Li, Yinpeng Dong, Ke Shen, Jun Zhu*. [[paper](https://arxiv.org/abs/2604.09258)] [[pdf](https://arxiv.org/pdf/2604.09258)], 2026-04.
-- **On the Mirage of Long-Range Dependency, with an Application to Integer Multiplication**. *Zichao Wei*. [[paper](https://arxiv.org/abs/2603.29069)] [[pdf](https://arxiv.org/pdf/2603.29069)], 2026-03.
-
-## Repository guide
-
-| Path | Purpose |
-| --- | --- |
-| [`survey.md`](survey.md) | Main survey draft and source of truth for the taxonomy |
-| [`main_taxonomy.svg`](main_taxonomy.svg) | Editable taxonomy figure |
-| [`main_taxonomy.pdf`](main_taxonomy.pdf) | Publication-ready taxonomy export |
-| [`paper_manifest.tsv`](paper_manifest.tsv) | Audited metadata, taxonomy labels, abstracts, links, and local-path fields |
-| [`selection.tsv`](selection.tsv) | Compact list of included papers and inclusion reasons |
-| [`excluded_papers.tsv`](excluded_papers.tsv) | Papers rejected during scope audit, with reasons |
-| [`candidates.tsv`](candidates.tsv) | Deduplicated search candidates used during screening |
-| [`scripts/`](scripts) | Corpus parsing, merging, manifest construction, verification, and README generation |
-
-Local PDF archives are intentionally excluded from Git. Use each paper's `pdf_url` in the manifest or the links above.
-
-To verify a downloaded corpus:
-
-```bash
-python3 scripts/verify_corpus.py paper_manifest.tsv
-```
-
-To regenerate this README after changing the manifest:
-
-```bash
-python3 scripts/build_readme.py
-```
-
-## Contributing
-
-Contributions are welcome. Please open an issue or pull request and provide:
-
-- the paper title and stable source URL;
-- the reasoning task;
-- the reference training exposure;
-- the test-time distribution shift;
-- the evidence for transfer or failure;
-- the proposed primary taxonomy branch.
-
-A paper is not included only because it mentions generalization or improves a reasoning benchmark. The evaluation must cross a named boundary. Please preserve the TSV schemas and run the corpus checks before submitting a pull request.
 
 ## Citation
 
@@ -320,7 +264,3 @@ The paper citation will be added when the survey is released. To cite the living
   note         = {Accessed: YYYY-MM-DD}
 }
 ```
-
-## Acknowledgments
-
-The README organization was informed by [Awesome Efficient Reasoning](https://github.com/hemingkx/Awesome-Efficient-Reasoning). All papers remain the work of their respective authors. Please open an issue for missing work, incorrect metadata, or taxonomy disagreements.
