@@ -1,0 +1,66 @@
+kind	group	name	year	axis	train	test	measure	citation_key	url
+training	Math: verifiable prompts for RL	GSM8K (train)	2021	Grade-school math	7,473		Answer + rationale	cobbe2021gsm8k	https://arxiv.org/abs/2110.14168
+training	Math: verifiable prompts for RL	MATH (train)	2021	Competition math	7,500		Answer + solution	hendrycks2021math	https://arxiv.org/abs/2103.03874
+training	Math: verifiable prompts for RL	SimpleRL-Zoo	2025	Math	~8K per split		Answer	zeng2025simplerl	https://arxiv.org/abs/2503.18892
+training	Math: verifiable prompts for RL	DAPO-Math-17k	2025	Competition math	~17K		Integer answer	yu2025dapo	https://arxiv.org/abs/2503.14476
+training	Math: verifiable prompts for RL	DeepScaleR	2025	Competition math	~40K		Answer	luo2025deepscaler	https://huggingface.co/datasets/agentica-org/DeepScaleR-Preview-Dataset
+training	Math: verifiable prompts for RL	DeepMath-103K	2025	Math	103K		Answer + traces	he2025deepmath	https://arxiv.org/abs/2504.11456
+training	Math: verifiable prompts for RL	Skywork-OR1	2025	Math / code	~105K / 13.7K		Answer / tests	he2025skyworkor1	https://arxiv.org/abs/2505.22312
+training	Math: verifiable prompts for RL	ORZ-Math	2025	Competition math	~129K		Answer	hu2025orz	https://arxiv.org/abs/2503.24290
+training	Math: verifiable prompts for RL	Big-Math	2025	Math	>250K		Answer	albalak2025bigmath	https://arxiv.org/abs/2502.17387
+training	Math: demonstrations for SFT, distillation, and hybrid training	NuminaMath-CoT	2024	Math	~860K		CoT solution	li2024numinamath	https://huggingface.co/datasets/AI-MO/NuminaMath-CoT
+training	Math: demonstrations for SFT, distillation, and hybrid training	OpenR1-Math-220k (all)	2025	Math	~225K problems		2-4 R1 traces per problem	openr1	https://huggingface.co/datasets/open-r1/OpenR1-Math-220k
+training	Math: demonstrations for SFT, distillation, and hybrid training	OpenR1-Math-46k-8192	2025	Math	~46K problems		Long CoT (R1) + answer	yan2025luffy	https://huggingface.co/datasets/Elliott/Openr1-Math-46k-8192
+training	Math: demonstrations for SFT, distillation, and hybrid training	LIMO (released set)	2025	Math	817 problems		Long CoT	ye2025limo	https://arxiv.org/abs/2502.03387
+training	Math: demonstrations for SFT, distillation, and hybrid training	s1K	2025	Math, science	1,000 problems		Long CoT	muennighoff2025s1	https://arxiv.org/abs/2501.19393
+training	Math: demonstrations for SFT, distillation, and hybrid training	OpenThoughts releases	2025	Math, code, science	114K / 1M / 1.2M problems		Long CoT	guha2025openthoughts	https://arxiv.org/abs/2506.04178
+training	Logic, puzzles, and procedural environments	Knights and Knaves	2025	Logic puzzles	Procedural		Assignment checker	xie2025logicrl	https://arxiv.org/abs/2502.14768
+training	Logic, puzzles, and procedural environments	Reasoning Gym	2025	Algorithmic, logic	100+ generators		Task verifier	stojanovski2025reasoninggym	https://arxiv.org/abs/2505.24760
+training	Logic, puzzles, and procedural environments	SynLogic	2025	Logic	35 task types		Task verifier	liu2025synlogic	https://arxiv.org/abs/2505.19641
+training	Logic, puzzles, and procedural environments	Enigmata	2025	Puzzles	36 task types		Task verifier	chen2025enigmata	https://arxiv.org/abs/2505.19914
+training	Multi-domain	SciQ (train)	2017	Science MCQ	11,679		Correct option	welbl2017sciq	https://arxiv.org/abs/1707.06209
+training	Multi-domain	GURU	2025	Six domains	92K		Domain verifiers	cheng2025guru	https://arxiv.org/abs/2506.14965
+training	Multi-domain	WebInstruct-verified	2025	Multi-domain	~230K		Model-based verifier	ma2025generalreasoner	https://arxiv.org/abs/2505.14652
+training	Multi-domain	DataFlex-RL mixture	2026	Math, logic, science	15K		Rule-based checks	liang2026dataflexrl	https://arxiv.org/abs/2609.06107
+evaluation	Mathematics	GSM8K	2021	Instance	7,473	1,319	Accuracy	cobbe2021gsm8k	https://arxiv.org/abs/2110.14168
+evaluation	Mathematics	Minerva / OCW	2022	Task / domain	-	272	Accuracy	lewkowycz2022minerva	https://arxiv.org/abs/2206.14858
+evaluation	Mathematics	AMC	2022-23	Instance	-	40 / 83 (harness subsets)	avg@k
+evaluation	Mathematics	MATH-500	2023	Instance	-	500	Accuracy	lightman2024verify	https://arxiv.org/abs/2305.20050
+evaluation	Mathematics	AIME 2024	2024	Instance	-	30	avg@k
+evaluation	Mathematics	OlympiadBench	2024	Difficulty	-	675 (English text-only math)	Accuracy	he2024olympiadbench	https://arxiv.org/abs/2402.14008
+evaluation	Mathematics	AIME 2025	2025	Instance (temporal check)	-	30	avg@k
+evaluation	Science and knowledge	ARC-Challenge	2018	Task / domain	1,119	1,172	Accuracy	clark2018arc	https://arxiv.org/abs/1803.05457
+evaluation	Science and knowledge	GPQA-Diamond	2023	Task / domain	-	198	Accuracy	rein2024gpqa	https://arxiv.org/abs/2311.12022
+evaluation	Science and knowledge	MMLU-Pro	2024	Task / domain	-	12,032	Accuracy	wang2024mmlupro	https://arxiv.org/abs/2406.01574
+evaluation	Science and knowledge	SuperGPQA	2025	Task / domain	-	26,529	Accuracy	du2025supergpqa	https://arxiv.org/abs/2502.14739
+evaluation	Science and knowledge	Humanity's Last Exam	2025	Difficulty	-	2,500	Accuracy	phan2025hle	https://arxiv.org/abs/2501.14249
+evaluation	Science and knowledge	ScienceArena	2026	Task / domain	-	13 competitions	Rubric credit	zhao2026sciencearena	https://arxiv.org/abs/2608.30517
+evaluation	Logic, puzzles, and code	ARC-AGI	2019	Task / domain	400	400 (public)	Accuracy	chollet2019measure	https://arxiv.org/abs/1911.01547
+evaluation	Logic, puzzles, and code	HumanEval	2021	Task / domain	-	164	pass@k	chen2021humaneval	https://arxiv.org/abs/2107.03374
+evaluation	Logic, puzzles, and code	BBH	2022	Task / domain	-	23 tasks	Accuracy	suzgun2023bbh	https://arxiv.org/abs/2210.09261
+evaluation	Logic, puzzles, and code	LiveCodeBench	2024	Task / domain (temporal check)	-	Rolling	pass@1	jain2024livecodebench	https://arxiv.org/abs/2403.07974
+evaluation	Logic, puzzles, and code	Knights and Knaves	2025	Difficulty	Procedural	Procedural	Accuracy	xie2025logicrl	https://arxiv.org/abs/2502.14768
+evaluation	Logic, puzzles, and code	ZebraLogic	2025	Difficulty	-	1,000	Accuracy	lin2025zebralogic	https://arxiv.org/abs/2502.01100
+evaluation	Surface perturbation and distractors	GSM-IC	2023	Distractors	-	58,052	Micro / macro accuracy	shi2023gsmic	https://arxiv.org/abs/2302.00093
+evaluation	Surface perturbation and distractors	GSM-Plus	2024	Perturbation / difficulty	-	10,552	Accuracy	li2024gsmplus	https://arxiv.org/abs/2402.19255
+evaluation	Surface perturbation and distractors	GSM-Symbolic	2024	Surface / format	-	100 templates x 50 instances	Mean and std	mirzadeh2025gsmsymbolic	https://arxiv.org/abs/2410.05229
+evaluation	Composition and length	SCAN (length split)	2017	Length / depth	16,990	3,920	Exact match	lake2018generalization	https://arxiv.org/abs/1711.00350
+evaluation	Composition and length	CFQ	2019	Composition	239,357 in total		Exact match	keysers2020cfq	https://arxiv.org/abs/1912.09713
+evaluation	Composition and length	COGS	2020	Composition	24,155	21,000	Exact match	kim2020cogs	https://arxiv.org/abs/2010.05465
+evaluation	Composition and length	Last-letter concatenation	2022	Length / depth	-	500 per length	Accuracy	zhou2023leasttomost	https://arxiv.org/abs/2205.10625
+evaluation	Composition and length	CLRS-30	2022	Size / length	1,000 per algorithm	32 per algorithm	Micro-F1	velickovic2022clrs	https://arxiv.org/abs/2205.15659
+evaluation	Composition and length	MathGAP	2024	Length / depth	-	Generated	Accuracy	opedal2025mathgap	https://arxiv.org/abs/2410.13502
+evaluation	Composition and length	Multi-digit addition	2024	Length / depth	Up to 40 digits	Up to 100 digits	Accuracy	zhou2024transformers	https://arxiv.org/abs/2402.09371
+evaluation	Composition and length	Compositional-ARC	2025	Composition	82,908 episodes	8,546 episodes	Accuracy	mondorf2025compositionalarc	https://arxiv.org/abs/2504.01445
+evaluation	Composition and length	OMEGA	2025	Difficulty; composition	Generated	Generated	Accuracy	sun2025omega	https://arxiv.org/abs/2506.18880
+evaluation	Composition and length	XDomainBench	2026	Composition	-	8,598 sessions	Recall / F1	zhiren2026xdomainbench	https://arxiv.org/abs/2605.14754
+evaluation	Planning, agents, and algorithmic or modality shifts	A-OKVQA	2022	Modality (vision)	17,056	~1.1K (val)	Exact match / accuracy	schwenk2022aokvqa	https://arxiv.org/abs/2206.01718
+evaluation	Planning, agents, and algorithmic or modality shifts	FACTOR (wiki/news)	2024	Knowledge shift	-	Generated	Accuracy	muhlgay2024factor	https://arxiv.org/abs/2307.06908
+evaluation	Planning, agents, and algorithmic or modality shifts	WebArena	2024	Environment / tool	-	812	Success rate	zhou2024webarena	https://arxiv.org/abs/2307.13854
+evaluation	Planning, agents, and algorithmic or modality shifts	Mind2Web	2023	Domain / environment	-	2,000+	Success rate	deng2023mind2web	https://arxiv.org/abs/2306.06070
+evaluation	Planning, agents, and algorithmic or modality shifts	SWE-bench Verified	2024	Task / length	-	500	Code-fixing pass rate	jimenez2024swebench	https://arxiv.org/abs/2310.06770
+evaluation	Planning, agents, and algorithmic or modality shifts	Reversal Curse	2024	Algorithmic direction	Generated	Generated	Exact string match	berglund2024reversal	https://arxiv.org/abs/2309.12288
+evaluation	Recent and contamination-limited benchmarks	GSM1K	2024	Instance (temporal check)	-	1,205	Accuracy	zhang2024gsm1k	https://arxiv.org/abs/2405.00332
+evaluation	Recent and contamination-limited benchmarks	LiveBench	2024	Instance (temporal check)	-	Monthly	Accuracy	white2024livebench	https://arxiv.org/abs/2406.19314
+evaluation	Recent and contamination-limited benchmarks	General365	2026	Task; variants	-	365 seeds + 1,095 variants	Accuracy	liu2026general365	https://arxiv.org/abs/2604.11778
+evaluation	Recent and contamination-limited benchmarks	EsoLang-Bench	2026	Programming language	-	80 per language	Accuracy	sharma2026esolangbench	https://arxiv.org/abs/2603.09678

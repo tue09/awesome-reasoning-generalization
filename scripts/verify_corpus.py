@@ -21,13 +21,13 @@ def main() -> None:
     for row in rows:
         path = repo_root / row["local_file"]
         if not path.exists():
-            bad.append((row["arxiv_id"], str(path), "missing"))
+            bad.append((row["paper_id"], str(path), "missing"))
             continue
         size = path.stat().st_size
         with path.open("rb") as handle:
             magic = handle.read(5)
         if size < 10_000 or magic != b"%PDF-":
-            bad.append((row["arxiv_id"], str(path), f"invalid ({size} bytes)"))
+            bad.append((row["paper_id"], str(path), f"invalid ({size} bytes)"))
             continue
         check = subprocess.run(
             ["pdfinfo", str(path)],
@@ -38,11 +38,11 @@ def main() -> None:
         )
         if check.returncode != 0:
             detail = check.stderr.strip().splitlines()[0] if check.stderr.strip() else "pdfinfo failed"
-            bad.append((row["arxiv_id"], str(path), detail))
+            bad.append((row["paper_id"], str(path), detail))
 
     print(f"manifest={len(rows)} valid={len(rows) - len(bad)} invalid={len(bad)}")
-    for arxiv_id, path, problem in bad:
-        print(f"{arxiv_id}\t{problem}\t{path}")
+    for paper_id, path, problem in bad:
+        print(f"{paper_id}\t{problem}\t{path}")
     raise SystemExit(1 if bad else 0)
 
 
