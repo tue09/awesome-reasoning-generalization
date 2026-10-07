@@ -1,7 +1,6 @@
-# Local paper archives and the manuscript PDF are intentionally not published.
+# Local paper archives are intentionally not published.
 paper/
 excluded_paper/
-full_paper/
 
 # Temporary and machine-local files.
 tmp/
