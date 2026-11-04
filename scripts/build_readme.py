@@ -35,6 +35,19 @@ CLAIM_FIELDS = [
     ("Inference cost", "Samples, generated tokens, tool calls, wall time or FLOPs, and stopping rule", "Reporting an accuracy gain that follows only from unbounded extra computation"),
 ]
 
+# Methodology references for the claim checklist. They are not studies of reasoning generalization,
+# so they stay out of the manifest and the corpus counts.
+REPORTING_REFERENCES = [
+    {
+        "title": "Don't Pass@k: A Bayesian Framework for Large Language Model Evaluation",
+        "authors": "Mohsen Hariri; Amirhossein Samandar; Michael Hinczewski; Vipin Chaudhary",
+        "published": "2025-10-05",
+        "source_url": "https://arxiv.org/abs/2510.04265",
+        "pdf_url": "https://arxiv.org/pdf/2510.04265",
+        "code_url": "https://github.com/mohsenhariri/scorio",
+    },
+]
+
 PILLAR_BRANCHES = {
     "training": "Pre-training, mid-training, and post-training (SFT, RL, hybrid)",
     "inference": "Trajectory restructuring, compute scaling, state assessment, externalization",
@@ -69,10 +82,11 @@ def paper_item(row: dict[str, str]) -> str:
     color = YEAR_BADGE_COLOR.get(year, "lightgrey")
     title = clean(row["title"])
     names = authors(row)
+    code = f"[[Code]]({row['code_url']}) " if row.get("code_url") else ""
     return (
         f"- **{title}**{'' if title.endswith(('?', '!', '.')) else '.'} "
         f"*{names}*{'' if names.endswith('.') else '.'} "
-        f"[[Paper]]({row['source_url']}) [[PDF]]({row['pdf_url']}) "
+        f"[[Paper]]({row['source_url']}) [[PDF]]({row['pdf_url']}) {code}"
         f"![](https://img.shields.io/badge/year-{year}-{color})"
     )
 
@@ -193,6 +207,13 @@ def build() -> str:
             "system can solve longer problems even when the base model has not learned a length-general algorithm. Greedy "
             "accuracy shows what a model produces reliably, large-pass@k accuracy what it can produce occasionally, and "
             "verifier-selected accuracy what a larger system can recover.",
+            "",
+            "**Reporting uncertainty.** With few sampled trials per problem, accuracy and pass@k can rank models "
+            "differently from run to run. Posterior estimates with credible intervals show whether a gap exceeds sampling "
+            "noise; they quantify uncertainty on a fixed benchmark and do not by themselves establish transfer under "
+            "distribution shift.",
+            "",
+            *(paper_item(row) for row in REPORTING_REFERENCES),
             "",
             "## Taxonomy",
             "",

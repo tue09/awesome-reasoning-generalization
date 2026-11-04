@@ -60,6 +60,10 @@ A reasoning-generalization result can be interpreted only when it states what th
 
 Gains enabled by prompting, search, verification, or memory need not hold for the model alone: a tool-augmented system can solve longer problems even when the base model has not learned a length-general algorithm. Greedy accuracy shows what a model produces reliably, large-pass@k accuracy what it can produce occasionally, and verifier-selected accuracy what a larger system can recover.
 
+**Reporting uncertainty.** With few sampled trials per problem, accuracy and pass@k can rank models differently from run to run. Posterior estimates with credible intervals show whether a gap exceeds sampling noise; they quantify uncertainty on a fixed benchmark and do not by themselves establish transfer under distribution shift.
+
+- **Don't Pass@k: A Bayesian Framework for Large Language Model Evaluation**. *Mohsen Hariri, Amirhossein Samandar, Michael Hinczewski, Vipin Chaudhary*. [[Paper]](https://arxiv.org/abs/2510.04265) [[PDF]](https://arxiv.org/pdf/2510.04265) [[Code]](https://github.com/mohsenhariri/scorio) ![](https://img.shields.io/badge/year-2025-orange)
+
 ## Taxonomy
 
 | Pillar | Central question | Branches |
