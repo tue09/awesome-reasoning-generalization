@@ -13,8 +13,6 @@
 
 </div>
 
-> **Status:** Updated on 13 October 2026 to follow the complete version of the survey (literature search through 22 September 2026). The corpus version contains 239 studies, of which 173 are cited in the current survey: 72 on training, 24 on inference, 22 on architecture, and 55 on analysis. These counts include contextual methods as well as direct transfer evidence. The remaining 66 studies are retained in the catalogue. By first arXiv posting, 112 are from 2026, 71 from 2025, 35 from 2024, and 21 are earlier foundations.
-
 Progress in LLM reasoning is commonly measured on benchmarks that stay close to the training distribution. This list collects work on the question the survey asks: when and how can large language models generalize their reasoning beyond their training distributions, under changes in notation, problem structure, length, difficulty, domain, language, or tool interface? The companion text is in [survey.md](survey.md), and the paper is in [full_paper/](full_paper/).
 
 ## Contents

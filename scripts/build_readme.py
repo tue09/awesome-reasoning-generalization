@@ -16,8 +16,6 @@ MANIFEST = ROOT / "data" / "paper_manifest.tsv"
 RESOURCES = ROOT / "data" / "resources.tsv"
 OUTPUT = ROOT / "README.md"
 
-UPDATED = "13 October 2026"
-SEARCH_DATE = "22 September 2026"
 MAX_AUTHORS = 12
 
 YEAR_BADGE_COLOR = {
@@ -126,11 +124,7 @@ def build() -> str:
     resources = load(RESOURCES)
     core = [row for row in rows if row["role"] == "core"]
     surveys = [row for row in rows if row["role"] == "survey"]
-    selected = [row for row in core if row["in_survey"] == "yes"]
-    in_survey = len(selected)
-    survey_by_pillar = Counter(row["taxonomy_id"].split(".")[0] for row in selected)
     years = Counter(row["published"][:4] for row in core)
-    earlier = sum(count for year, count in years.items() if year < "2024")
 
     by_leaf: dict[str, list[dict[str, str]]] = {}
     for row in core:
@@ -155,17 +149,6 @@ def build() -> str:
         "[![GitHub last commit](https://img.shields.io/github/last-commit/tue09/awesome-reasoning-generalization?logo=github&color=blue)](https://github.com/tue09/awesome-reasoning-generalization/commits/main)",
         "",
         "</div>",
-        "",
-        (
-            f"> **Status:** Updated on {UPDATED} to follow the complete version of the survey (literature search through {SEARCH_DATE}). "
-            f"The corpus version contains {len(core)} studies, of which {in_survey} are cited in the current survey: "
-            f"{survey_by_pillar['training']} on training, {survey_by_pillar['inference']} on inference, "
-            f"{survey_by_pillar['architecture']} on architecture, and {survey_by_pillar['analysis']} on analysis. "
-            f"These counts include contextual methods as well as direct transfer evidence. The remaining "
-            f"{len(core) - in_survey} studies are retained in the catalogue. By first arXiv posting, "
-            f"{years['2026']} are from 2026, {years['2025']} from 2025, "
-            f"{years['2024']} from 2024, and {earlier} are earlier foundations."
-        ),
         "",
         "Progress in LLM reasoning is commonly measured on benchmarks that stay close to the training distribution. This "
         "list collects work on the question the survey asks: when and how can large language models generalize their "
