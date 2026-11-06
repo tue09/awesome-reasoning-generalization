@@ -24,6 +24,7 @@ TEXT_MAX = 580
 TOP = 76
 
 BLUE, ORANGE, GREEN, PURPLE, PINK = "#6ea8ff", "#ff9d5c", "#4fd1a1", "#b18cff", "#f78fb3"
+CYAN, AMBER = "#8be9ff", "#ffd166"
 
 
 def num(v: float) -> str:
@@ -118,9 +119,48 @@ def blob(cx: float, cy: float, rx: float, ry: float, seed: int, n: int = 48) -> 
     return "".join(d) + "Z", scale
 
 
-def cubic(p0, c1, c2, p1, t):
-    u = 1 - t
-    return tuple(u**3 * a + 3 * u * u * t * b + 3 * u * t * t * c + t**3 * d for a, b, c, d in zip(p0, c1, c2, p1))
+def check(x: float, y: float, r: float, color: str) -> str:
+    """Colored badge with a check mark."""
+    d = f"M{num(x - r * 0.42)} {num(y + r * 0.02)}L{num(x - r * 0.1)} {num(y + r * 0.34)}L{num(x + r * 0.45)} {num(y - r * 0.32)}"
+    return (
+        f'<circle cx="{num(x)}" cy="{num(y)}" r="{num(r)}" fill="{color}"/>'
+        f'<path d="{d}" fill="none" stroke="#0b1020" stroke-width="{num(r * 0.3)}" stroke-linecap="round" stroke-linejoin="round"/>'
+    )
+
+
+def robot(x: float, y: float) -> str:
+    """A small robot standing at (x, y), right arm raised toward the unseen problems."""
+    body, limb = 'fill="url(#robotBody)"', "#b9c7ec"
+    parts = [
+        '<ellipse cx="0" cy="4" rx="46" ry="7" fill="#000" fill-opacity=".35"/>',
+        f'<rect x="-21" y="-28" width="13" height="24" rx="6" fill="{limb}"/>',
+        f'<rect x="8" y="-28" width="13" height="24" rx="6" fill="{limb}"/>',
+        f'<ellipse cx="-15" cy="-3" rx="11" ry="5.5" fill="{BLUE}"/>',
+        f'<ellipse cx="15" cy="-3" rx="11" ry="5.5" fill="{BLUE}"/>',
+        f'<path d="M-33 -68L-49 -42" stroke="{limb}" stroke-width="12" stroke-linecap="round"/>',
+        f'<circle cx="-50" cy="-40" r="7.5" fill="{BLUE}"/>',
+        f'<path d="M33 -68L57 -90" stroke="{limb}" stroke-width="12" stroke-linecap="round"/>',
+        f'<circle cx="59" cy="-92" r="7.5" fill="{BLUE}"/>',
+        f'<rect x="-35" y="-84" width="70" height="60" rx="18" {body}/>',
+        '<circle cx="0" cy="-54" r="10" fill="#0d1328"/>',
+        f'<circle cx="0" cy="-54" r="5" fill="{PINK}" class="beat"/>',
+        f'<rect x="-10" y="-92" width="20" height="10" rx="3" fill="{limb}"/>',
+        f'<rect x="-57" y="-138" width="11" height="28" rx="5" fill="{BLUE}"/>',
+        f'<rect x="46" y="-138" width="11" height="28" rx="5" fill="{BLUE}"/>',
+        f'<rect x="-49" y="-162" width="98" height="74" rx="26" {body}/>',
+        '<rect x="-39" y="-152" width="78" height="54" rx="18" fill="#0d1328"/>',
+        '<g class="blink">'
+        f'<rect x="-23" y="-138" width="13" height="19" rx="6.5" fill="{CYAN}"/><rect x="10" y="-138" width="13" height="19" rx="6.5" fill="{CYAN}"/>'
+        '<circle cx="-14" cy="-133" r="2.6" fill="#fff"/><circle cx="19" cy="-133" r="2.6" fill="#fff"/>'
+        "</g>",
+        f'<path d="M-9 -110Q0 -103 9 -110" fill="none" stroke="{CYAN}" stroke-width="2.6" stroke-linecap="round"/>',
+        f'<ellipse cx="-28" cy="-110" rx="5.5" ry="3" fill="{PINK}" fill-opacity=".6"/>',
+        f'<ellipse cx="28" cy="-110" rx="5.5" ry="3" fill="{PINK}" fill-opacity=".6"/>',
+        f'<path d="M0 -162V-180" stroke="{limb}" stroke-width="4" stroke-linecap="round"/>',
+        f'<circle cx="0" cy="-186" r="13" fill="{AMBER}" opacity=".25" class="halo"/>',
+        f'<circle cx="0" cy="-186" r="7" fill="{AMBER}"/>',
+    ]
+    return f'<g transform="translate({num(x)} {num(y)})">' + "".join(parts) + "</g>"
 
 
 def build(fonts: Path) -> str:
@@ -160,65 +200,61 @@ def build(fonts: Path) -> str:
         x += w + 10
     assert top + h < H - 24, "pills overflow"
 
-    # Illustration: a training distribution and reasoning chains that leave it.
-    cx, cy, rx, ry = 826, 200, 112, 96
-    shape, scale = blob(cx, cy, rx, ry, seed=7)
+    # Illustration: a model trained on familiar problems reasons step by step through unseen ones.
+    cx, cy, rx, ry = 776, 206, 88, 112
+    shape, _ = blob(cx, cy, rx, ry, seed=7)
     add('<g filter="url(#soft)" opacity=".9">')
     add(f'<path d="{shape}" fill="url(#distGrad)"/>')
     add("</g>")
-    add(f'<path d="{shape}" fill="none" stroke="{BLUE}" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>')
+    add(f'<path d="{shape}" fill="none" stroke="{BLUE}" stroke-opacity=".55" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>')
 
-    rng = random.Random(3)
-    dots = []
-    while len(dots) < 70:
-        t = rng.uniform(0, 2 * math.pi)
-        r = math.sqrt(rng.random()) * 0.86 * scale(t)
-        dots.append((cx + rx * r * math.cos(t), cy + ry * r * math.sin(t), rng.uniform(1.3, 2.4), rng.uniform(0.25, 0.7)))
-    add("".join(f'<circle cx="{num(a)}" cy="{num(b)}" r="{num(r)}" fill="#a9c8ff" fill-opacity="{c:.2f}"/>' for a, b, r, c in dots))
-    add(f'<path fill="{BLUE}" fill-opacity=".8" d="{mono_face.path("training distribution", cx - mono_face.width("training distribution", 12.5, 0.4) / 2, cy + ry + 34, 12.5, 0.4)}"/>')
+    # Solved training problems, each with a short reasoning chain.
+    for y in (150, 198, 246):
+        x0 = cx - 54
+        add(f'<rect x="{num(x0)}" y="{y - 16}" width="108" height="32" rx="10" fill="#0d1430" fill-opacity=".6" stroke="{BLUE}" stroke-opacity=".45"/>')
+        nodes = [x0 + 18 + 21 * k for k in range(3)]
+        add(f'<path d="M{num(nodes[0])} {y}H{num(nodes[-1])}" stroke="#cfe0ff" stroke-opacity=".7" stroke-width="2"/>')
+        add("".join(f'<circle cx="{num(n)}" cy="{y}" r="4.5" fill="#e8f0ff"/>' for n in nodes))
+        add(check(x0 + 89, y, 8, BLUE))
 
-    # In-distribution chain (solid) to the boundary.
-    theta = math.radians(-4)
-    exit_pt = (cx + rx * scale(theta) * math.cos(theta), cy + ry * scale(theta) * math.sin(theta))
-    chain = [(760, 238), (797, 190), (843, 214), (887, 178), exit_pt]
-    add(f'<polyline points="{" ".join(f"{num(a)},{num(b)}" for a, b in chain)}" fill="none" stroke="#e8eefc" stroke-opacity=".85" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>')
+    # Unseen problems the robot points to.
+    labels = [("longer", ORANGE), ("harder", GREEN), ("new domains", PURPLE), ("new combinations", PINK)]
+    card_size, card_h, card_x = 15, 40, 1048
+    card_w = max(pill_face.width(text, card_size) for text, _ in labels) + 62
+    assert card_x + card_w < W - 36, f"cards overflow: {card_x + card_w}"
+    hand = (932 + 59 + 8, 336 - 92)
+    for i, (text, color) in enumerate(labels):
+        y = 132 + i * 54
+        d = f"M{num(hand[0])} {num(hand[1])}C{num(hand[0] + 24)} {num(hand[1])} {num(card_x - 26)} {y} {card_x} {y}"
+        add(f'<path d="{d}" fill="none" stroke="{color}" stroke-opacity=".85" stroke-width="2" stroke-linecap="round" class="flow"/>')
+        add(f'<rect x="{card_x}" y="{y - card_h / 2}" width="{num(card_w)}" height="{card_h}" rx="12" fill="{color}" fill-opacity=".12" stroke="{color}" stroke-opacity=".6"/>')
+        add(f'<path fill="{color}" d="{pill_face.path(text, card_x + 16, y + 5.4, card_size)}"/>')
+        add(f'<g class="pop p{i}">{check(card_x + card_w - 22, y, 10, color)}</g>')
 
-    # Out-of-distribution chains (dashed, animated) toward four shifts.
-    targets = [
-        ("composition", ORANGE, (1080, 72)),
-        ("length", GREEN, (1132, 152)),
-        ("difficulty", PURPLE, (1124, 240)),
-        ("domain", PINK, (1066, 322)),
-    ]
-    ends = []
-    for i, (label, color, end) in enumerate(targets):
-        c1 = (exit_pt[0] + 72, exit_pt[1] + (end[1] - exit_pt[1]) * 0.15)
-        c2 = (end[0] - 84, end[1])
-        d = f"M{num(exit_pt[0])} {num(exit_pt[1])}C{num(c1[0])} {num(c1[1])} {num(c2[0])} {num(c2[1])} {num(end[0])} {num(end[1])}"
-        add(f'<path d="{d}" fill="none" stroke="{color}" stroke-opacity=".9" stroke-width="2" stroke-linecap="round" class="flow"/>')
-        for t in (0.42, 0.74):
-            px, py = cubic(exit_pt, c1, c2, end, t)
-            add(f'<circle cx="{num(px)}" cy="{num(py)}" r="3.6" fill="#0d1328" stroke="{color}" stroke-width="1.8"/>')
-        ends.append((label, color, end, i))
+    # Captions under the two regions.
+    for text, x_mid, color in (("training distribution", cx, BLUE), ("unseen problems", card_x + card_w / 2, "#c9b6ff")):
+        add(f'<path fill="{color}" fill-opacity=".85" d="{mono_face.path(text, x_mid - mono_face.width(text, 13, 0.4) / 2, 352, 13, 0.4)}"/>')
 
-    for label, color, (ex, ey), i in ends:
-        add(f'<circle cx="{num(ex)}" cy="{num(ey)}" r="15" fill="{color}" opacity=".22" class="halo d{i}"/>')
-        add(f'<circle cx="{num(ex)}" cy="{num(ey)}" r="6.5" fill="{color}"/>')
-        add(f'<path fill="{color}" d="{mono_face.path(label, ex + 24, ey + 4.6, 13.5, 0.3)}"/>')
-
-    # In-distribution nodes drawn last so they sit on top of the line.
-    for k, (a, b) in enumerate(chain):
-        r = 6.5 if k == len(chain) - 1 else 5
-        add(f'<circle cx="{num(a)}" cy="{num(b)}" r="{r}" fill="#f4f6fb" stroke="{BLUE}" stroke-width="2"/>')
-
-    right_edge = max(ex + 24 + mono_face.width(lbl, 13.5, 0.3) for lbl, _, (ex, _), _ in ends)
-    assert right_edge < W - 40, f"labels overflow: {right_edge}"
+    # The robot, with a thought bubble of numbered reasoning steps.
+    add(robot(932, 336))
+    bubble = "#1a2352"
+    add(f'<circle cx="952" cy="132" r="3.4" fill="{bubble}" stroke="#ffffff" stroke-opacity=".22"/>')
+    add(f'<circle cx="962" cy="117" r="5.2" fill="{bubble}" stroke="#ffffff" stroke-opacity=".22"/>')
+    add(f'<rect x="868" y="50" width="168" height="56" rx="28" fill="{bubble}" stroke="#ffffff" stroke-opacity=".22"/>')
+    steps = [902, 940, 978]
+    add(f'<path d="M{steps[0]} 78H1012" stroke="#cfe0ff" stroke-opacity=".6" stroke-width="2"/>')
+    add("".join(f'<circle cx="{sx}" cy="78" r="11.5" fill="{bubble}"/>' for sx in [*steps, 1012]))
+    for k, sx in enumerate(steps):
+        digit = str(k + 1)
+        add(f'<g class="step s{k}"><circle cx="{sx}" cy="78" r="11.5" fill="#e8f0ff"/>'
+            f'<path fill="#0d1328" d="{pill_face.path(digit, sx - pill_face.width(digit, 13) / 2, 82.6, 13)}"/></g>')
+    add(f'<g class="step s3">{check(1012, 78, 11.5, GREEN)}</g>')
 
     defs = f"""<defs>
 <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
 <stop offset="0" stop-color="#0a0f1f"/><stop offset=".55" stop-color="#10163a"/><stop offset="1" stop-color="#1b1238"/>
 </linearGradient>
-<radialGradient id="glow" cx="{cx}" cy="{cy}" r="420" gradientUnits="userSpaceOnUse">
+<radialGradient id="glow" cx="900" cy="210" r="440" gradientUnits="userSpaceOnUse">
 <stop offset="0" stop-color="#3f63e0" stop-opacity=".32"/><stop offset="1" stop-color="#3f63e0" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="glow2" cx="1180" cy="40" r="300" gradientUnits="userSpaceOnUse">
@@ -237,17 +273,30 @@ def build(fonts: Path) -> str:
 <stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".6" stop-color="#fff" stop-opacity="1"/>
 </linearGradient>
 <mask id="gridMask"><rect width="{W}" height="{H}" fill="url(#gridFade)"/></mask>
+<linearGradient id="robotBody" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#f7f9ff"/><stop offset="1" stop-color="#c4d0f0"/>
+</linearGradient>
 <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
 <clipPath id="frame"><rect width="{W}" height="{H}" rx="24"/></clipPath>
 </defs>"""
 
     style = """<style>
-.flow{stroke-dasharray:3 7;animation:flow 1.6s linear infinite}
-@keyframes flow{to{stroke-dashoffset:-20}}
-.halo{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-in-out infinite}
-.d1{animation-delay:-.8s}.d2{animation-delay:-1.6s}.d3{animation-delay:-2.4s}
-@keyframes pulse{0%,100%{opacity:.12;transform:scale(.75)}50%{opacity:.4;transform:scale(1.2)}}
-@media (prefers-reduced-motion:reduce){.flow,.halo{animation:none}}
+.flow{stroke-dasharray:3 6;animation:flow 1.4s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-18}}
+.halo,.blink,.beat,.pop{transform-box:fill-box;transform-origin:center}
+.halo{animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.15;transform:scale(.8)}50%{opacity:.45;transform:scale(1.25)}}
+.blink{animation:blink 4.5s infinite}
+@keyframes blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.12)}}
+.beat{animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{0%,100%{opacity:.55}50%{opacity:1}}
+.step{animation:step 3.6s infinite both}
+.s1{animation-delay:.35s}.s2{animation-delay:.7s}.s3{animation-delay:1.05s}
+@keyframes step{0%,6%{opacity:.3}14%,86%{opacity:1}100%{opacity:.3}}
+.pop{animation:pop 3.6s infinite both}
+.p0{animation-delay:1.3s}.p1{animation-delay:1.5s}.p2{animation-delay:1.7s}.p3{animation-delay:1.9s}
+@keyframes pop{0%,4%{transform:scale(.4);opacity:.3}12%{transform:scale(1.15);opacity:1}18%,86%{transform:scale(1);opacity:1}100%{transform:scale(.4);opacity:.3}}
+@media (prefers-reduced-motion:reduce){.flow,.halo,.blink,.beat,.step,.pop{animation:none}}
 </style>"""
 
     return "\n".join(
