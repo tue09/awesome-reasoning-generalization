@@ -1,8 +1,6 @@
 <div align="center">
 
-# Awesome Reasoning Generalization
-
-### Beyond the Training Distribution: A Survey of Reasoning Generalization in Large Language Models
+<img src="assets/banner.svg" width="100%" alt="Awesome Reasoning Generalization: Beyond the Training Distribution, a survey of reasoning generalization in large language models">
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 ![Papers](https://img.shields.io/badge/papers-239-6f42c1)

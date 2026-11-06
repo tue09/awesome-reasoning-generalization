@@ -137,9 +137,7 @@ def build() -> str:
     lines = [
         '<div align="center">',
         "",
-        "# Awesome Reasoning Generalization",
-        "",
-        "### Beyond the Training Distribution: A Survey of Reasoning Generalization in Large Language Models",
+        '<img src="assets/banner.svg" width="100%" alt="Awesome Reasoning Generalization: Beyond the Training Distribution, a survey of reasoning generalization in large language models">',
         "",
         "[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)",
         f"![Papers](https://img.shields.io/badge/papers-{len(core)}-6f42c1)",
