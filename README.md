@@ -7,7 +7,7 @@
 ![2024 papers](https://img.shields.io/badge/2024%20papers-35-yellow)
 ![2025 papers](https://img.shields.io/badge/2025%20papers-71-orange)
 ![2026 papers](https://img.shields.io/badge/2026%20papers-112-red)
-[![GitHub last commit](https://img.shields.io/github/last-commit/tue09/awesome-reasoning-generalization?logo=github&color=blue)](https://github.com/tue09/awesome-reasoning-generalization/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/tue09/awesome-reasoning-generalization?logo=github&color=blue&cacheSeconds=3600)](https://github.com/tue09/awesome-reasoning-generalization/commits/main)
 
 </div>
 

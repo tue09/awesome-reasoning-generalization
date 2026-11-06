@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 W, H = 1280, 400
 LEFT = 68
 TEXT_MAX = 580
-TOP = 76
+TITLE_Y = 123
 
 BLUE, ORANGE, GREEN, PURPLE, PINK = "#6ea8ff", "#ff9d5c", "#4fd1a1", "#b18cff", "#f78fb3"
 CYAN, AMBER = "#8be9ff", "#ffd166"
@@ -179,15 +179,13 @@ def build(fonts: Path) -> str:
     lines = ["Awesome Reasoning", "Generalization"]
     while max(title_face.width(t, title_size, -1.2) for t in lines) > TEXT_MAX:
         title_size -= 1
-    kicker = "CURATED PAPER LIST  ·  SURVEY COMPANION"
-    add(f'<path fill="#8ea0c8" d="{mono_face.path(kicker, LEFT, TOP, 14, 1.6)}"/>')
-    add(f'<path fill="#f4f6fb" d="{title_face.path(lines[0], LEFT, TOP + 66, title_size, -1.2)}"/>')
-    add(f'<path fill="url(#titleGrad)" d="{title_face.path(lines[1], LEFT, TOP + 66 + title_size * 1.08, title_size, -1.2)}"/>')
+    add(f'<path fill="#f4f6fb" d="{title_face.path(lines[0], LEFT, TITLE_Y, title_size, -1.2)}"/>')
+    add(f'<path fill="url(#titleGrad)" d="{title_face.path(lines[1], LEFT, TITLE_Y + title_size * 1.08, title_size, -1.2)}"/>')
     sub = ["Beyond the Training Distribution: A Survey of Reasoning", "Generalization in Large Language Models"]
     sub_size = 20
     while max(body_face.width(t, sub_size) for t in sub) > TEXT_MAX:
         sub_size -= 0.5
-    sub_y = TOP + 66 + title_size * 1.08 + 48
+    sub_y = TITLE_Y + title_size * 1.08 + 48
     for i, text in enumerate(sub):
         add(f'<path fill="#aab4cc" d="{body_face.path(text, LEFT, sub_y + i * sub_size * 1.4, sub_size)}"/>')
 
